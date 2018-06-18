@@ -15,7 +15,7 @@ public class FrontController extends BaseController{
 	@Autowired private UserService userService;
 	@RequestMapping("/")
 	public ModelAndView showHomePage(HttpServletRequest request){
-		ModelAndView modelAndView = new ModelAndView("home");
+		ModelAndView modelAndView = new ModelAndView("home1");
 		return modelAndView;
 		
 	}
@@ -33,4 +33,15 @@ public class FrontController extends BaseController{
 		return modelAndView;
 	}
 
+	@RequestMapping("/registerMe")
+	public ModelAndView openRegisterPage(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView("register");
+		return modelAndView;
+	}
+	
+	@RequestMapping("/myProfile")
+	public ModelAndView openmyProfilePage(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView("userProfile");
+		return modelAndView;
+	}
 }
