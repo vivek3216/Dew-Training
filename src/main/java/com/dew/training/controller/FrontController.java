@@ -44,4 +44,10 @@ public class FrontController extends BaseController{
 		ModelAndView modelAndView = new ModelAndView("userProfile");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/updateProfile")
+	public ModelAndView openUpdatePage(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView("updatePage");
+		return modelAndView;
+	}
 }
