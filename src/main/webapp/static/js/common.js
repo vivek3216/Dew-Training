@@ -18,13 +18,19 @@ $(document).ready(function(){
     });
 
 $(window).scroll(function(){$(this).scrollTop()>100?$(".scrollup").fadeIn():$(".scrollup").fadeOut()}),$(".scrollup").click(function(){return $("html, body").animate({scrollTop:0},600),!1})
-   $('.blog_sec .same_height').sameheight();
-   $('.news_sec .same_height').sameheight();
-   $('.testimonial_sec .same_height').sameheight();
-   $('.portfolio.info.same_height').sameheight();
-   $('.equ-height.info.same_height').sameheight();
-   $('.product_page .info.same_height').sameheight();
-   $('.current_opning .events_box.same_height').sameheight();
+$(window).on('load resize', function(){  
+   
+	setTimeout(function(){
+		$('.blog_sec .same_height').sameheight();
+		   $('.news_sec .same_height').sameheight();
+		   $('.testimonial_sec .same_height').sameheight();
+		   $('.portfolio.info.same_height').sameheight();
+		   $('.equ-height.info.same_height').sameheight();
+		   $('.product_page .info.same_height').sameheight();
+		   $('.current_opning .events_box.same_height').sameheight();
+	}, 500);
+
+});
 /*	$('.same_height_2').sameheight();
 	$('.same_height_3').sameheight();*/
 });
