@@ -36,3 +36,30 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `user-profile` (
+	`user_id` int(20) NOT NULL AUTO_INCREMENT,
+	`course_name` varchar(10) NOT NULL,
+    `course_specialization` varchar(30) NOT NULL,
+	`course_year` date NOT NULL,
+    `education_type` varchar(10) NOT NULL,
+    `course_marks` integer NOT NULL,
+    `college` varchar(100) NOT NULL,
+    `board_name_1` varchar(20) NOT NULL,
+    `board_marks_1` integer NOT NULL,
+    `board_year_1` date NOT NULL,
+    `board_medium_1` varchar(20) NOT NULL,
+    `board_name_2` varchar(20) NOT NULL,
+    `board_marks_2` integer NOT NULL,
+    `board_year_2` date NOT NULL,
+    `board_medium_2` varchar(20) NOT NULL,
+	`work_preference` tinyint(1) NOT NULL,
+    `start_time` tinyint(1) NOT NULL,
+    `location` varchar(20) NOT NULL,
+    `company_name` varchar(50) ,
+    `start_date` date,
+    `end_date` date,
+    `project_details` varchar(1000),
+    PRIMARY KEY (`user_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

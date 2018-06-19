@@ -1,9 +1,9 @@
 package com.dew.training.dto;
 
 public class Schooling {
-	private String name;
+	private String name;     //board name-cbse, ib
 	private String marks;
-	private String board;
+	private String board;   // medium- english, hindi
 	private int yearOfPassing;
 	
 	public String getName() {
