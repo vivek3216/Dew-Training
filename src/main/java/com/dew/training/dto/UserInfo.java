@@ -1,108 +1,41 @@
 package com.dew.training.dto;
 
-import com.google.api.client.util.DateTime;
-
 public class UserInfo {
 	
 	private String specialization;
-	private DateTime yearOfPassing;
-	private String gradeSystem;
-	private Integer marks;
-	private String college;
-	private String boardtw;
-	private Integer markstw;
-	private String yeartw;
-	private String mediumtw;
-	private String boardte;
-	private Integer markste;
-	private String yearte;
-	private String mediumte;
+	private Schooling tenthStandard;
+	private Schooling twelfthStandard;
+	private College graduation;
+	private College postGraduation;
 	
-	private String ugCourse;
-	public String getUgCourse() {
-		return ugCourse;
-	}
-	public void setUgCourse(String ugCourse) {
-		this.ugCourse = ugCourse;
-	}
 	public String getSpecialization() {
 		return specialization;
 	}
 	public void setSpecialization(String specialization) {
 		this.specialization = specialization;
 	}
-	public DateTime getYearOfPassing() {
-		return yearOfPassing;
+	public Schooling getTenthStandard() {
+		return tenthStandard;
 	}
-	public void setYearOfPassing(DateTime yearOfPassing) {
-		this.yearOfPassing = yearOfPassing;
+	public void setTenthStandard(Schooling tenthStandard) {
+		this.tenthStandard = tenthStandard;
 	}
-	public String getGradeSystem() {
-		return gradeSystem;
+	public Schooling getTwelfthStandard() {
+		return twelfthStandard;
 	}
-	public void setGradeSystem(String gradeSystem) {
-		this.gradeSystem = gradeSystem;
+	public void setTwelfthStandard(Schooling twelfthStandard) {
+		this.twelfthStandard = twelfthStandard;
 	}
-	public Integer getMarks() {
-		return marks;
+	public College getGraduation() {
+		return graduation;
 	}
-	public void setMarks(Integer marks) {
-		this.marks = marks;
+	public void setGraduation(College graduation) {
+		this.graduation = graduation;
 	}
-	public String getCollege() {
-		return college;
+	public College getPostGraduation() {
+		return postGraduation;
 	}
-	public void setCollege(String college) {
-		this.college = college;
+	public void setPostGraduation(College postGraduation) {
+		this.postGraduation = postGraduation;
 	}
-	public String getBoardtw() {
-		return boardtw;
-	}
-	public void setBoardtw(String boardtw) {
-		this.boardtw = boardtw;
-	}
-	public Integer getMarkstw() {
-		return markstw;
-	}
-	public void setMarkstw(Integer markstw) {
-		this.markstw = markstw;
-	}
-	public String getYeartw() {
-		return yeartw;
-	}
-	public void setYeartw(String yeartw) {
-		this.yeartw = yeartw;
-	}
-	public String getMediumtw() {
-		return mediumtw;
-	}
-	public void setMediumtw(String mediumtw) {
-		this.mediumtw = mediumtw;
-	}
-	public String getBoardte() {
-		return boardte;
-	}
-	public void setBoardte(String boardte) {
-		this.boardte = boardte;
-	}
-	public Integer getMarkste() {
-		return markste;
-	}
-	public void setMarkste(Integer markste) {
-		this.markste = markste;
-	}
-	public String getYearte() {
-		return yearte;
-	}
-	public void setYearte(String yearte) {
-		this.yearte = yearte;
-	}
-	public String getMediumte() {
-		return mediumte;
-	}
-	public void setMediumte(String mediumte) {
-		this.mediumte = mediumte;
-	}
-	
-
 }
