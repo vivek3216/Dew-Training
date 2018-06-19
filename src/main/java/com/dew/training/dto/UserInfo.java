@@ -2,18 +2,15 @@ package com.dew.training.dto;
 
 public class UserInfo {
 	
-	private String specialization;
+	
 	private Schooling tenthStandard;
 	private Schooling twelfthStandard;
 	private College graduation;
-	private College postGraduation;
+	private Work workExperience;
+	private Internship internship;
 	
-	public String getSpecialization() {
-		return specialization;
-	}
-	public void setSpecialization(String specialization) {
-		this.specialization = specialization;
-	}
+	
+	
 	public Schooling getTenthStandard() {
 		return tenthStandard;
 	}
@@ -32,10 +29,16 @@ public class UserInfo {
 	public void setGraduation(College graduation) {
 		this.graduation = graduation;
 	}
-	public College getPostGraduation() {
-		return postGraduation;
+	public Work getWorkExperience() {
+		return workExperience;
 	}
-	public void setPostGraduation(College postGraduation) {
-		this.postGraduation = postGraduation;
+	public void setWorkExperience(Work workExperience) {
+		this.workExperience = workExperience;
+	}
+	public Internship getInternship() {
+		return internship;
+	}
+	public void setInternship(Internship internship) {
+		this.internship = internship;
 	}
 }

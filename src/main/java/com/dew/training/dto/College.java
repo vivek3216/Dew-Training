@@ -8,6 +8,7 @@ public class College {
 	private String universityName;
 	private int yearOfPassing;
 	private EducationType educationType;
+	private String specialization;
 	
 	public String getName() {
 		return name;
@@ -38,6 +39,12 @@ public class College {
 	}
 	public void setEducationType(EducationType educationType) {
 		this.educationType = educationType;
+	}
+	public String getSpecialization() {
+		return specialization;
+	}
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
 	}
 	
 }
