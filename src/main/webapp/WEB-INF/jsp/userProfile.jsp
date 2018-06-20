@@ -88,8 +88,62 @@
                        <p class="text-left"><strong>Details</strong><br>
                        Worked on a website Development project, using JSP,Java,JS,CSS,Bootstrap etc</p>
                        </div>
+                       
+                       <h2 class="text-left"><strong>Job Details- </strong> </h2>
+                       <div class="panel panel-default">
+                       <p class="text-left"><strong>Profile Picture</strong><br>
+                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                       <br>
+                       
+                       <p class="text-left"><strong>Describe your professional background in one line</strong><br>
+                       Jobseeker  with B.Tech/B.E. in Computers currently living in Ahmedabad</p>
+                       <p class="text-left"><strong>Industry</strong><br>
+                       IT-Hardware/Software Services</p>
+                       <p class="text-left"><strong>Functional Area</strong><br>
+                       Web/Graphic Design/Visualiser</p>
+                       <p class="text-left"><strong>Role</strong><br>
+                       Developer</p>
+                       <p class="text-left"><strong>Preffered Work Location</strong><br>
+                       Ahmadabad</p>
+                       <p class="text-left"><strong>Desired Job Type</strong><br>
+                       Permanent</p>
+                       <p class="text-left"><strong>Desired Employement Type</strong><br>
+                       Full Time</p>
+                       <p class="text-left"><strong>Skills</strong><br>
+                       Java, HTML, Bootstrap, CSS, JS</p>
+                       <p class="text-left"><strong>Marital Status</strong><br>
+                       Single/Unmarried</p>
+                       <p class="text-left"><strong>Aadhar Card</strong><br>
+                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                       <br>
+                       <p class="text-left"><strong>Passport</strong><br>
+                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                        <br>
+                       <p class="text-left"><strong>Resume</strong><br>
+                       <link rel="stylesheet" type="text/css" href="css/file-upload.css" />
+                       <script src="js/file-upload.js"></script>
+                                  <script type="text/javascript">
+                                  $(document).ready(function() {
+                                       $('.file-upload').file_upload();
+                                                     });
+                                        </script>
+                       <form class="form-horizontal">
+                            <div class="form-group">
+                              <div class="col-sm-offset-0 col-sm-10">
+                              <label class="file-upload btn btn-primary">
+                                    Browse for file ... <input type="file" />
+                              </label>
+                              </div>
+                            </div>
+                       </form>
+        
+                       </div>
                     	</div>
                     	</div>
+                    	
                     	
                     	
                     
