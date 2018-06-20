@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Preference {
+	
 
 FULL_TIME(1),PART_TIME(2),INTERNSHIP(3);
 	

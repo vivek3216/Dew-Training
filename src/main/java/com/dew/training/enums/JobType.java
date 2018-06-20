@@ -6,6 +6,7 @@ import java.util.Map;
 
 public enum JobType {
 
+	
 
 PERMANENT(1),TEMPORARY(2),BOTH(3);
 	
