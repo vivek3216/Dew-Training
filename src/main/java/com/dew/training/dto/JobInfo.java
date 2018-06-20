@@ -72,7 +72,4 @@ public class JobInfo {
 		this.jobType = jobType;
 	}
 	
-	
-	
-	
 }

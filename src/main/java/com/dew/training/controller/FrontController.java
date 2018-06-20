@@ -56,5 +56,4 @@ public class FrontController extends BaseController{
 		ModelAndView modelAndView = new ModelAndView("jobProfile");
 		return modelAndView;
 	}
-	
 }

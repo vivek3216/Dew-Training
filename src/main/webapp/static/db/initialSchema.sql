@@ -63,3 +63,18 @@ CREATE TABLE `user-profile` (
     `project_details` varchar(1000),
     PRIMARY KEY (`user_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+    
+    CREATE TABLE `job-profile` (
+	`user_id` int(20) NOT NULL AUTO_INCREMENT,
+    `bio` varchar(200) NOT NULL,
+    `industry` varchar(50) NOT NULL,
+    `functional_area` varchar(50) NOT NULL,
+    `role` varchar(50) NOT NULL,
+    `work_location` varchar(50) NOT NULL,
+    `job_type` tinyint(1) NOT NULL,
+    `employ_type` tinyint(1) NOT NULL,
+    `skills` varchar(200) NOT NULL,
+    `marital` varchar(10) NOT NULL,
+    PRIMARY KEY (`user_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
