@@ -82,3 +82,22 @@ CREATE TABLE `user_profile` (
     FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
     PRIMARY KEY (`user_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    
+   CREATE TABLE `email_log` (
+  `email_log_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `from_address` varchar(500) NOT NULL,
+  `to_address` varchar(500) NOT NULL,
+  `cc_address` varchar(500),
+  `bcc_address` varchar(500),
+  `replyto_address` varchar(500),
+  `subject` varchar(255) NOT NULL,
+  `body` mediumtext NOT NULL,
+  `sent` bit(1) NOT NULL DEFAULT b'0',
+  `sent_on` datetime,
+  `is_resent` bit(1) NOT NULL DEFAULT b'0',
+  `created_on` datetime NOT NULL,
+  `created_by` varchar(30) NOT NULL,
+  `modified_on` datetime,
+  `modified_by` varchar(30),
+  PRIMARY KEY (`email_log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
