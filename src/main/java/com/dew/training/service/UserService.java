@@ -1,6 +1,7 @@
 package com.dew.training.service;
 
 import com.dew.training.dto.User;
+import com.dew.training.dto.UserInfo;
 
 public interface UserService {
 
@@ -9,4 +10,6 @@ public interface UserService {
 	public User signIn(User user);
 
 	public User getUserByEmail(String email);
+
+	public void updateuserProfile(UserInfo userInfo);
 }

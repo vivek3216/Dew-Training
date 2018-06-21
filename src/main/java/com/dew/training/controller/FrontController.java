@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dew.training.dto.User;
 import com.dew.training.service.UserService;
 
 @Controller
@@ -39,20 +40,25 @@ public class FrontController extends BaseController{
 		return modelAndView;
 	}
 	
-	@RequestMapping("/myProfile")
+	@RequestMapping("/user/myProfile")
 	public ModelAndView openmyProfilePage(HttpServletRequest request){
 		ModelAndView modelAndView = new ModelAndView("userProfile");
 		return modelAndView;
 	}
 	
-	@RequestMapping("/updateProfile")
+	@RequestMapping("/user/updateProfile")
 	public ModelAndView openUpdatePage(HttpServletRequest request){
 		ModelAndView modelAndView = new ModelAndView("updatePage");
 		return modelAndView;
 	}
 	
-	@RequestMapping("/jobProfile")
+	@RequestMapping("/user/jobProfile")
 	public ModelAndView openJobProfilePage(HttpServletRequest request){
+		int userId=Integer.valueOf((String) request.getAttribute("dewUser"));
+		User user = userService.getUserByUserId(userId);
+		if(user==null) {
+			
+		}
 		ModelAndView modelAndView = new ModelAndView("jobProfile");
 		return modelAndView;
 	}
