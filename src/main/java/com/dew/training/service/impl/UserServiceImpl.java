@@ -2,9 +2,11 @@ package com.dew.training.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dew.training.dao.UserDao;
 import com.dew.training.dto.User;
+import com.dew.training.dto.UserInfo;
 import com.dew.training.service.UserService;
 
 @Service
@@ -31,6 +33,13 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User getUserByEmail(String email) {
 		return userDAO.getUserByEmail(email);
+	}
+	
+	@Override
+	public void updateuserProfile(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		userDAO.updateProfile();
+		userDAO.updatejob(;)]
 	}
 
 }
