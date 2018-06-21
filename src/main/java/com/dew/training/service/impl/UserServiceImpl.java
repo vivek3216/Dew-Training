@@ -38,8 +38,14 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void updateuserProfile(UserInfo userInfo) {
 		// TODO Auto-generated method stub
-		userDAO.updateProfile();
-		userDAO.updatejob(;)]
+		//userDAO.updateProfile();
+		//userDAO.updatejob(;)]
+	}
+
+	@Override
+	public User getUserByUserId(int userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
