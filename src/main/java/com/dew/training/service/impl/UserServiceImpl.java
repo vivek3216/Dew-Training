@@ -14,6 +14,7 @@ import com.dew.training.dto.UserInfo;
 import com.dew.training.enums.MailMessageType;
 import com.dew.training.service.EmailService;
 import com.dew.training.service.UserService;
+import com.dew.training.util.ApplicationProperties;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService{
 		params.put("firstName", user.getFirstName());
 		params.put("email", user.getEmail());
 		params.put("lastName", user.getLastName());
-		params.put("domainName","");
+		params.put("domainName",ApplicationProperties.getProperty("domainName"));
 		emailService.sendMail(MailMessageType.WELCOME_MAIL,params);
 		return user1;
 	}

@@ -15,6 +15,7 @@ import com.dew.training.app.MailContentProvider;
 import com.dew.training.dto.EmailLog;
 import com.dew.training.enums.MailMessageType;
 import com.dew.training.service.EmailService;
+import com.dew.training.util.ApplicationProperties;
 
 @Service
 public class EmailServiceImpl implements EmailService{
@@ -30,7 +31,7 @@ public class EmailServiceImpl implements EmailService{
 		MimeMessage message=mailSender.createMimeMessage();
 		String content = mailContentProvider.getContent(messageType, params);
 		try {
-			populateEmailLogFields(params, message,content);
+			populateEmailLogFields(params, message,content,messageType);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,11 +52,11 @@ public class EmailServiceImpl implements EmailService{
 		
 	}
 	
-	private void populateEmailLogFields(Map<String, Object> params, MimeMessage message,String content) throws MessagingException {
+	private void populateEmailLogFields(Map<String, Object> params, MimeMessage message,String content, MailMessageType messageType) throws MessagingException {
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
-		helper.setFrom("vivekp@dewsolutions.in");
+		helper.setFrom(ApplicationProperties.getProperty("fromEmailAddress"));
 		helper.setTo(params.get("email").toString());
-		helper.setSubject("Welcome TO Dew Solutions");
+		helper.setSubject(messageType.equals(MailMessageType.FORGOT_PASSWORD) ? ApplicationProperties.getProperty("forgotPasswordEmailSubject") : ApplicationProperties.getProperty("changePasswordEmailSubject"));
 		helper.setText(content, true);
 	}
 

@@ -26,13 +26,13 @@
     <import resource="spring-security.xml"/>
     <import resource="mail-config.xml"/>
     <bean id="customAuthenticationProvider" class="com.dew.training.auth.CustomAuthenticationProvider"></bean>
+    <bean id="applicationProperties" class="com.dew.training.util.ApplicationProperties" init-method="init" />
    <!--  <import resource="quartz-config.xml"/>
     <import resource="datasource-config.xml" />
     <import resource="spring-security.xml"/>
     
     <bean id="customAuthenticationProvider" class="com._1018mb.auth.CustomAuthenticationProvider"></bean>
     <bean id="customAuthenticationProviderBO" class="com._1018mb.auth.CustomAuthenticationProviderBO"></bean>
-    <bean id="applicationProperties" class="com._1018mb.util.ApplicationProperties" init-method="init" />
     -->
     <!-- <bean id="titleService" class="com._1018mb.service.impl.TitleServiceImpl"></bean> -->
     <bean id="userService" class="com.dew.training.service.impl.UserServiceImpl"></bean>
