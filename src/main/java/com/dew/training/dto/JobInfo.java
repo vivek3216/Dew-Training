@@ -6,7 +6,8 @@ import com.dew.training.enums.Preference;
 
 public class JobInfo {
 
-	
+	private int job_profile_id;
+	private int user_id;
 	private String bio;
 	private String industry;
 	private String functionalArea;
@@ -70,6 +71,18 @@ public class JobInfo {
 	}
 	public void setJobType(JobType jobType) {
 		this.jobType = jobType;
+	}
+	public int getJob_profile_id() {
+		return job_profile_id;
+	}
+	public void setJob_profile_id(int job_profile_id) {
+		this.job_profile_id = job_profile_id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	
 }

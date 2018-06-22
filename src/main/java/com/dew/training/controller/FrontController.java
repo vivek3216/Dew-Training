@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dew.training.dto.User;
+import com.dew.training.dto.UserInfo;
 import com.dew.training.service.UserService;
 
 @Controller
@@ -43,6 +44,8 @@ public class FrontController extends BaseController{
 	@RequestMapping("/user/myProfile")
 	public ModelAndView openmyProfilePage(HttpServletRequest request){
 		ModelAndView modelAndView = new ModelAndView("userProfile");
+		int userId = Integer.valueOf((String) request.getAttribute("dewUser"));
+		UserInfo userInfo= userService.getUserInfo(userId);
 		return modelAndView;
 	}
 	

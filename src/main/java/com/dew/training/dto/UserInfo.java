@@ -2,7 +2,7 @@ package com.dew.training.dto;
 
 public class UserInfo {
 	
-	
+	private int user_profile_id;
 	private Schooling tenthStandard;
 	private Schooling twelfthStandard;
 	private College graduation;
@@ -40,5 +40,11 @@ public class UserInfo {
 	}
 	public void setInternship(Internship internship) {
 		this.internship = internship;
+	}
+	public int getUser_profile_id() {
+		return user_profile_id;
+	}
+	public void setUser_profile_id(int user_profile_id) {
+		this.user_profile_id = user_profile_id;
 	}
 }

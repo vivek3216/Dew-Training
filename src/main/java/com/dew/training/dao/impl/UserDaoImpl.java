@@ -13,7 +13,11 @@ import org.springframework.stereotype.Repository;
 
 import com.dew.training.dao.JDBCDaoSupport;
 import com.dew.training.dao.UserDao;
+import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.User;
+import com.dew.training.dto.UserInfo;
+import com.dew.training.dto.Work;
+import com.dew.training.enums.EducationType;
 import com.dew.training.enums.Gender;
 import com.dew.training.util.GeneralUtils;
 
@@ -78,4 +82,102 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 		return dBUser;
 	}
 
+	
+	@Override
+	public UserInfo addUserProfile(final UserInfo userInfo) {
+		final String sql = "INSERT INTO user_profile (course_name,course_specialization,course_year,education_type,course_marks,college,board_name_1,board_marks_1,board_year_1,board_medium_1,board_name_2,board_marks_2,board_year_2,board_medium_2,work_preference,start_time,location,company_name,start_date,end_date,project_details) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		getJdbcTemplate().update(new PreparedStatementCreator() {
+			
+						
+						@Override
+						public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+							PreparedStatement statement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+							statement.setString(1, userInfo.getGraduation().getName());             // values from form are converted to varchar for database usage
+							statement.setString(2, userInfo.getGraduation().getSpecialization());         // insert into db
+							statement.setInt(3, userInfo.getGraduation().getYearOfPassing());
+							statement.setInt(4, userInfo.getGraduation().getEducationType().getValue());
+							statement.setString(5, userInfo.getGraduation().getMarks());
+							statement.setString(6, userInfo.getGraduation().getUniversityName());
+							statement.setString(7, userInfo.getTwelfthStandard().getName());
+							statement.setString(8, userInfo.getTwelfthStandard().getMarks());
+							statement.setInt(9, userInfo.getTwelfthStandard().getYearOfPassing());
+							statement.setString(10, userInfo.getTwelfthStandard().getBoard());
+							statement.setString(11, userInfo.getTenthStandard().getName());
+							statement.setString(12, userInfo.getTenthStandard().getMarks());
+							statement.setInt(13, userInfo.getTenthStandard().getYearOfPassing());
+							statement.setString(14, userInfo.getTenthStandard().getBoard());
+							statement.setInt(15, userInfo.getWorkExperience().getPreference().getValue());
+							statement.setInt(16, userInfo.getWorkExperience().getStartDate().getValue());
+							statement.setString(17, userInfo.getWorkExperience().getLocation());
+							statement.setString(18, userInfo.getInternship().getCompany());
+							statement.setInt(19, userInfo.getInternship().getDuration_start());
+							statement.setInt(20, userInfo.getInternship().getDuration_end());
+							statement.setString(21, userInfo.getInternship().getDetails());
+							return statement;
+						}
+					},keyHolder);
+					userInfo.setUser_profile_id(keyHolder.getKey().intValue());
+					return userInfo;
+				}
+
+	@Override
+	public void updateProfile(UserInfo userInfo) throws Exception {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE user_profile set course_name= ?,course_specialization= ?,course_year= ?,education_type= ?,course_marks= ?,college,board_name_1= ?,board_marks_1= ?,board_year_1= ?,board_medium_1= ?,board_name_2= ?,board_marks_2= ?,board_year_2= ?,board_medium_2= ?,work_preference= ?,start_time= ?,location= ?,company_name= ?,start_date= ?,end_date= ?,project_details= ?";
+		
+	}
+
+	@Override
+	public JobInfo addJobProfile(final JobInfo jobInfo) {
+		final String sql = "INSERT INTO job_profile (bio,industry,functional_area,role,work_location,job_type,employ_type,skills,marital) VALUES(?,?,?,?,?,?,?,?,?)";
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		getJdbcTemplate().update(new PreparedStatementCreator() {
+			
+						
+						@Override
+						public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
+							PreparedStatement statement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+							statement.setString(1, jobInfo.getBio());             // values from form are converted to varchar for database usage
+							statement.setString(2, jobInfo.getIndustry());         // insert into db
+							statement.setString(3, jobInfo.getFunctionalArea());
+							statement.setString(4, jobInfo.getRole());
+							statement.setString(5, jobInfo.getWorkLocation());
+							statement.setInt(6, jobInfo.getJobType().getValue());
+							statement.setInt(7, jobInfo.getEmploymentType().getValue());
+							statement.setString(8, jobInfo.getSkills());
+							statement.setString(9, jobInfo.getMaritalStatus());
+							return statement;
+						}
+					},keyHolder);
+					jobInfo.setJob_profile_id(keyHolder.getKey().intValue());
+					return jobInfo;
+				}
+
+	
+	@Override
+	public void updatejob(JobInfo jobInfo) throws Exception {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE job_profile set bio= ?,industry= ?,functional_area= ?,role= ?,work_location= ?,job_type= ?,employ_type= ?,skills= ?,marital= ?";
+	}
+
+	@Override
+	public UserInfo getUserInfo(int userId) {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
