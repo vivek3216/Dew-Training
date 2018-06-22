@@ -1,5 +1,8 @@
 package com.dew.training.service.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +11,8 @@ import com.dew.training.dao.UserDao;
 import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
+import com.dew.training.enums.MailMessageType;
+import com.dew.training.service.EmailService;
 import com.dew.training.service.UserService;
 
 @Service
@@ -16,13 +21,19 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDao userDAO;
 	
+	@Autowired
+	private EmailService emailService;
+	
 	@Override
 	public User addUser(User user) throws Exception {
 		// TODO Auto-generated method stub
 		User user1=userDAO.addUser(user);
-		
-		
-		//mail
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("firstName", user.getFirstName());
+		params.put("email", user.getEmail());
+		params.put("lastName", user.getLastName());
+		params.put("domainName","");
+		emailService.sendMail(MailMessageType.WELCOME_MAIL,params);
 		return user1;
 	}
 

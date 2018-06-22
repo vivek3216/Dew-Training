@@ -267,7 +267,7 @@ $.fn.serializeObject = function()
 function submitForm(){
 	var formData=$("#registerForm").serializeObject();
 	console.log(formData);
-	var url="http://localhost:8080/Dew-Training/register/";
+	var url="http://localhost:8090/Training/register/";
 	$.ajax({
         url : url,
         type : 'POST',

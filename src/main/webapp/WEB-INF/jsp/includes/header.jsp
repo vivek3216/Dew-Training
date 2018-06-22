@@ -136,7 +136,7 @@
 					<div class="panel-heading">
 						<div class="panel-title">Sign In</div>
 						<div style="float: right; font-size: 80%; position: relative; top: -10px">
-							<a id="forgotPwd" href="#" onclick="$('#signupbox').hide(); $('#loginbox').hide(); $('#forgotPasswordbox').show(); ">Forgot Password?</a>
+							<a id="forgotPwd" href="#" onclick="$('#signupbox').hide(); $('#loginbox').hide(); $('#forgotPasswordbox').show();$('#forgotPasswordbox').removeClass('hidden') ">Forgot Password?</a>
 						</div>
 					</div>
 					<div class="panel-body" style="padding-top: 30px" >
@@ -158,7 +158,7 @@
 								<div class="col-sm-12 controls">
 								<input type="submit" value="Login" class="btn btn-success" id="btn-login">
 									<!-- <a id="btn-login" href="#" class="btn btn-success">Login </a>  -->
-									<a id="btn-fblogin" href="#" class="btn btn-primary" onclick="fbLogin();">Login with Facebook</a>
+									<!-- <a id="btn-fblogin" href="#" class="btn btn-primary" onclick="fbLogin();">Login with Facebook</a> -->
 								</div>
 							</div>
 							<div class="form-group">

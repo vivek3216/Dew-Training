@@ -20,11 +20,11 @@
 
     <context:annotation-config />
 
-	<context:component-scan	base-package="com.dew.training.dao,com.dew.training.service,com.dew.training.controller,com.dew.training.cron" />
-    <import resource="spring-security.xml"/>
-    <import resource="datasource-config.xml" />
-    <import resource="mail-config.xml"/>
+	<context:component-scan	base-package="com.dew.training.dao,com.dew.training.service,com.dew.training.controller,com.dew.training.cron,com.dew.training.app" />
     <import resource="quartz-config.xml"/>
+    <import resource="datasource-config.xml" />
+    <import resource="spring-security.xml"/>
+    <import resource="mail-config.xml"/>
     <bean id="customAuthenticationProvider" class="com.dew.training.auth.CustomAuthenticationProvider"></bean>
    <!--  <import resource="quartz-config.xml"/>
     <import resource="datasource-config.xml" />
@@ -35,5 +35,5 @@
     <bean id="applicationProperties" class="com._1018mb.util.ApplicationProperties" init-method="init" />
     -->
     <!-- <bean id="titleService" class="com._1018mb.service.impl.TitleServiceImpl"></bean> -->
-    <bean id="userService" class="com.dew.training.service.impl.UserServiceImpl"></bean> 
+    <bean id="userService" class="com.dew.training.service.impl.UserServiceImpl"></bean>
 </beans>
