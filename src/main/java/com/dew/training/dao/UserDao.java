@@ -21,4 +21,6 @@ public interface UserDao {
 	public JobInfo addJobProfile(JobInfo jobInfo);
 
 	public UserInfo getUserInfo(int userId);
+	
+	public void getPassword(String Password);
 }

@@ -15,6 +15,7 @@ import com.dew.training.enums.MailMessageType;
 import com.dew.training.service.EmailService;
 import com.dew.training.service.UserService;
 import com.dew.training.util.ApplicationProperties;
+import com.dew.training.util.GeneralUtils;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -78,6 +79,26 @@ public class UserServiceImpl implements UserService{
 	public UserInfo getUserInfo(int userId) {
 		// TODO Auto-generated method stub
 		return userDAO.getUserInfo(userId);
+	}
+
+	@Override
+	public void sendForgotPassword(String email) {
+		User user = userDAO.getUserByEmail(email);
+		String password = null;
+		try {
+			password=GeneralUtils.decrypt(user.getPassword());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("firstName", user.getFirstName());
+		params.put("email", user.getEmail());
+		params.put("lastName", user.getLastName());
+		params.put("password", password);
+		params.put("domainName",ApplicationProperties.getProperty("domainName"));
+		emailService.sendMail(MailMessageType.FORGOT_PASSWORD,params);
 	}
 
 	

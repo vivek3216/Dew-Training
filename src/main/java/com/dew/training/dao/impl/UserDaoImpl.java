@@ -33,6 +33,7 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 			user.setEmail(rs.getString("email"));
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
+			user.setPassword(rs.getString("Password"));
 			return user;
 			
 		}
@@ -82,6 +83,13 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 		return dBUser;
 	}
 
+	@Override
+	public void getPassword(String password) {
+		User dBUser=null;
+		final String sql= "Select FROM users WHERE email = ?";
+		//dBUser = getJdbcTemplate().getDataSource(sql, password) ;
+	
+	}
 	
 	@Override
 	public UserInfo addUserProfile(final UserInfo userInfo) {

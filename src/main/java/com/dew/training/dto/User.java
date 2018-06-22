@@ -131,7 +131,7 @@ public class User {
 		this.pincode = pincode;
 	}
 
-	public String getPassword() {
+	public static String getPassword() {
 		return password;
 	}
 

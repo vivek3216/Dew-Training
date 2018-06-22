@@ -43,9 +43,9 @@ public class RestAPIController {
 		
 		@ResponseBody
 		@RequestMapping(value = "/forgotPassword",produces="application/json")
-		public String forgotPassword(@RequestParam String email) {
-			//
-		return null;
+		public void forgotPassword(@RequestParam String email) throws Exception {
+			System.out.println("Your Password :" +User.getPassword());
+			userService.sendForgotPassword(email);
 		}
 		
 		@ResponseBody
@@ -56,7 +56,7 @@ public class RestAPIController {
 			try {
 				userService.updateuserProfile(userInfo);
 			} catch (Exception e) {
-				status="faileu";
+				status="failed";
 				// TODO: handle exception
 				
 			}

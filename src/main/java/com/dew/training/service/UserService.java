@@ -19,4 +19,6 @@ public interface UserService {
 	public User getUserByUserId(int userId);
 
 	public UserInfo getUserInfo(int userId);
+
+	public void sendForgotPassword(String email);
 }
