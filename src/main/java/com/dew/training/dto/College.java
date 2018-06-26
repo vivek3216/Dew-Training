@@ -4,11 +4,13 @@ import com.dew.training.enums.EducationType;
 
 public class College {
 	private String name;
-	private String marks;
-	private String universityName;
+	private String specialization;
 	private int yearOfPassing;
 	private EducationType educationType;
-	private String specialization;
+	private String marks;
+	private String universityName;
+
+
 	
 	public String getName() {
 		return name;

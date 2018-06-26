@@ -35,18 +35,9 @@ $(window).on('load resize', function(){
 	$('.same_height_3').sameheight();*/
 });
 
-/*eual height */
-		/*$(window).on('load resize', function(){  
+function updateUserInfo(){
+	var formData= $("#updateForm").searializeObject();
+	
+}
 
-	    var maxheight = 0;
-	    $('.events_box2, .events_box, .portfolio.info, .equ-height.info,.thumbnail .info, .testimonial_sec .boxes').each(function(){
-	        if (maxheight < $(this).height()) {
-	            maxheight = $(this).height();
-	        }
-	    });
-	    
-	    $('.events_box2, .events_box, .portfolio.info, .equ-height.info, .thumbnail .info, .testimonial_sec .boxes').height(maxheight);
-
-
-      });*/
 $(".contac_us_map iframe").attr("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.1066922049285!2d77.04326100000004!3d28.446199999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18429e8907e7%3A0x91f255d294730c0b!2sDew+Solutions+Private+Limited!5e0!3m2!1sen!2sin!4v1402202937655");

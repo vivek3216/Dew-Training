@@ -8,7 +8,7 @@
 <%-- <%@include file="includes/include-css.jsp"%> --%>
 
 
-<style>
+<style type="text/css">
 
 .myform {
     position: relative;
@@ -32,7 +32,9 @@
 </style>
 </head>
 <body>
-	<%@ include file ="includes/header.jsp" %>
+
+<div class="main">
+    <%@ include file ="includes/header.jsp" %> 
 	
 	
 	<div class="container"  style="padding-top: 150px;">
@@ -40,19 +42,16 @@
 			<div class=" col-md-9 mx-auto">
 			<h2>Update your Profile</h2><br>
 			<div class="myform form">
-			<form id="updateForm">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="text-center">Education Details</h3>
-					</div>
+				<form id="updateGraduation">
 					<div class="panel panel-default">
-						<div class="panel-body" id="UG-education">
-							<h4>Under-Graduate Education Details</h4>
+						<div class="panel-heading">
+							<h3 class="text-center">Education Details</h3>
 						</div>
-					<div class="panel-body">
+					<h4>Under-Graduate Education Details</h4>
+				 	<div class="panel-body">
 						<div class="form-group">
-							<label for="course_select">UG Course</label>
-							<select  name="course" id="course_ug" class="form-control" aria-describedby="emailHelp" placeholder="Select Course">
+					 		<label for="course_select">UG Course</label> 
+							<select  name="name" id="courseug" class="form-control"> 
 							  <option value="B.Com">B.Com</option>
 							  <option value="B.A.">B.A.</option>
 							  <option value="B.Arch">B.Arch</option>
@@ -71,20 +70,20 @@
 							  <option value="BVSc">BVSc</option>
 							  <option value="Diploma">Diploma</option> 
 							  <option value="LLB">LLB</option>
-							  <option value="MBBS">MBBS</option>
+							  <option value="MBBS">MBBS</option> 
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="specialization">Specialization</label>
-							<input type="text" class="form-control" id="specialization" placeholder="Enter your specialization" >
+							<input type="text" name="specialization" class="form-control" id="specialization" placeholder="Enter your specialization" >
 						</div>
 						<div class="form-group">
 							<label for="yearOfPassing">Year of Passing</label>
-							<input type="date" class="form-control" id="year" placeholder="Enter your year of passing" >
+							<input type="date"  name="yearOfPassing" class="form-control" id="year" placeholder="Enter your year of passing" >
 						</div>
 						<div class="form-group">
 							<label for="grading">Grading System</label>
-							<select  name="grade_sys" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="Select system">
+							<select  name="education_type" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="Select system">
 							  <option value="Scale 10 Grading System">Scale 10 Grading System</option>
 							  <option value="Scale 4 Grading System">Scale 4 Grading System</option>
 							  <option value="% Marks out of 100 Max">% Marks out of 100 Max</option>
@@ -93,31 +92,29 @@
 						</div>
 						<div class="form-group">
 							<label for="marks">Marks</label>
-							<input type="text" class="form-control" id="marks" placeholder="Enter marks" >
+							<input type="text" name="marks" class="form-control" id="marks" placeholder="Enter marks" >
 						</div>
 						<div class="form-group">
 							<label for="college">College/Institute, City</label>
-							<input type="text" class="form-control" id="college" placeholder="Enter college/institute" >
+							<input type="text" name="universityName" class="form-control" id="college" placeholder="Enter college/institute" >
 						</div>
 					</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-body" id="UG-education">
+					</form>
+					<form id="updatetwelfth">
 							<h4>Senior Secondary and Higher Secondary Education Details</h4>
-						</div>
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="class12">Class 12</label>
-							<select  name="board" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
+							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
 							  <option value="CBSE">CBSE</option>
 							  <option value="CISCE(ICSE/ISC)">CISCE(ICSE/ISC)</option>
 							  <option value="Diploma">Diploma</option>
 							  <option value="National Open School">National Open School</option>
 							  <option value="State Board">State Board</option>
 							 </select><br>
-							<input type="text" class="form-control" id="marks" placeholder="Enter your marks" ><br>
-							<input type="date" class="form-control" id="year" placeholder="Enter your passing year" ><br>
-							<select  name="medium" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
+							<input type="text"  name="marks" class="form-control" id="marks" placeholder="Enter your marks" ><br>
+							<input type="date"  name="yearOfPassing" class="form-control" id="year" placeholder="Enter your passing year" ><br>
+							<select  name="board" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
 							  <option value="English">English</option>
@@ -137,18 +134,20 @@
 							  <option value="Urdu">Urdu</option> 
 							</select><br>
 						</div>
+						</form>
+						<form id="updateTenth">
 						<div class="form-group">
 							<label for="class10">Class 10</label>
-							<select  name="board" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
+							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
 							  <option value="CBSE">CBSE</option>
 							  <option value="CISCE(ICSE/ISC)">CISCE(ICSE/ISC)</option>
 							  <option value="Diploma">Diploma</option>
 							  <option value="National Open School">National Open School</option><br>
 							  <option value="State Board">State Board</option>
 							 </select><br>
-							<input type="text" class="form-control" id="marks_m" placeholder="Enter your marks" ><br>
-							<input type="date" class="form-control" id="year_m" placeholder="Enter your passing year" ><br>
-							<select  name="medium" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
+							<input type="text"  name="marks" class="form-control" id="marks_m" placeholder="Enter your marks" ><br>
+							<input type="date" name="yearOfPassing" class="form-control" id="year_m" placeholder="Enter your passing year" ><br>
+							<select  name="board" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
 							  <option value="English">English</option>
@@ -168,10 +167,10 @@
 							  <option value="Urdu">Urdu</option> 
 							</select><br>
 						</div>
-					</div>
-					</div>
-				</div>
+						</form>
+					
 				
+				<form id="updateWork">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="text-center"> Work Preference </h3>
@@ -179,19 +178,19 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="work_pre">Specify your preference: </label>
-							<label class="radio-inline"><input type="radio" name="work" value="full-time"> Full-Time</label>
-							<label class="radio-inline"><input type="radio" name="work" value="part-time"> Part-Time</label>
-							<label class="radio-inline"><input type="radio" name="work" value="internship"> Internship</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="full-time"> Full-Time</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="part-time"> Part-Time</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="internship"> Internship</label>
  						</div>
  						<div class="form-group">
  							<label for="start_date"> When can you start working? </label>
- 							<label class="radio-inline"><input type= "radio" name="start_work" value="immediately"> Immediately</label> 
- 							<label class="radio-inline"><input type="radio" name="start_work"  value="date"> Date </label>
- 							<label class="radio-inline">	<input type="date" name="start_work" > </label>
+ 							<label class="radio-inline"><input type= "radio" name="start" value="immediately"> Immediately</label> 
+ 							<label class="radio-inline"><input type="radio" name="start"  value="date"> Date </label>
+ 							<label class="radio-inline">	<input type="date" name="start" > </label>
  						</div>
  						<div class="form-group">
  							<label for="location"> Preferred location: </label>
- 							<select  name="city" id="location" class="form-control" aria-describedby="emailHelp" >
+ 							<select  name="location" id="location" class="form-control" aria-describedby="emailHelp" >
 							  <option value="Ahmedabad">Ahemdabad</option>
 							  <option value="Bangalore">Bangalore</option>
 							  <option value="Bhopal">Bhopal</option>
@@ -214,7 +213,9 @@
  						</div>
 					</div>
 				</div>
+				</form>
 				
+				<form id="updateInternship">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="text-center"> Internship Details</h3>
@@ -222,13 +223,13 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="company-name"> Company </label>
-							<input type="text" id="company_name" class="form-control">
+							<input type="text" name="company" id="company_name" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="duration"> Duration </label>
-							<input type= "date" id="date_start" class="form-control">
+							<input type= "date" name="duration_start" id="date_start" class="form-control">
 							<h5> To </h5>
-							<input type="date" id="date-end" class="form-control">
+							<input type="date"  name="duration_end" id="date-end" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="details"> Details</label>
@@ -236,24 +237,77 @@
 						</div>
 					</div>
 				</div>
+				
+				</form>
+				
+				<form id="updateSubmit">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="form-group">
-							<input type="checkbox" name="agree"> I have read and I agree to the terms and conditions.
+							<input type="checkbox"> I have read and I agree to the terms and conditions.
 							<br><br>
-							<b><input class="form-control" type="submit" id="agreed" value="Submit and continue with registration"></b> 
+							<b><input class="form-control" type="button" onclick="updateUserInfo()" id="agreed" value="Submit and continue with registration"></b> 
 						</div>
 					</div>
 				</div>
 				</form>
+				
 				</div>
 			</div>
 		</div>
-	
 	</div>
-	
+			
 	  <%@ include file ="includes/footer.jsp" %>
 	<%@include file="includes/include-js.jsp"%> 
 	
+	</div>
 </body>
+
+<script type="text/javascript">
+
+var userInfo={};
+var ugData=JSON.stringify($("#updateGraduation").serializeObject());
+var twelfthData=JSON.stringify($("#updateTwelfth").serializeObject());
+var tenthData=JSON.stringify($("#updateTenth").serializeObject());
+var workData=JSON.stringify($("#updateWork").serializeObject());
+var internData=JSON.stringify($("#updateInternship").serializeObject());
+userInfo.tenthStandard=tenthData;
+userInfo.twelfthStandard=twelfthData;
+userInfo.graduation=ugData;
+userInfo.workExperience=workData;
+console.log(userInfo)
+
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+function updateUserInfo(){
+	var formData=$("#updateForm").serializeObject();
+	console.log(formData);
+	var url="http://localhost:8080/Training/user/updateProfile";
+	$.ajax({
+        url : url,
+        type : 'POST',
+        data:JSON.stringify(formData),
+        dataType : "json",
+        contentType : "application/json",
+        success : function(data) {
+			console.log(data);
+        }
+      });
+}
+
+</script>
 </html>
