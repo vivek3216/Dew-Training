@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dew.training.auth.CustomAuthenticationProvider;
+import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.LoginStatus;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
@@ -57,6 +58,24 @@ public class RestAPIController {
 				userService.updateuserProfile(userInfo);
 			} catch (Exception e) {
 				status="failed";
+				e.printStackTrace();
+				// TODO: handle exception
+				
+			}
+			
+			return status;
+		}
+		
+		@ResponseBody
+		@RequestMapping(value = "/updateJobInfo",method=RequestMethod.POST,produces="application/json")
+		public String updateJobInformation(@RequestBody JobInfo jobInfo,HttpServletRequest httpServletRequest) {
+			//update call
+			String status="success";
+			try {
+				userService.updatejobProfile(jobInfo);
+			} catch (Exception e) {
+				status="failed";
+				e.printStackTrace();
 				// TODO: handle exception
 				
 			}

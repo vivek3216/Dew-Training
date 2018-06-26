@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User Profile</title>
 <%-- <%@include file="includes/include-css.jsp"%> --%>
@@ -79,11 +81,15 @@
 						</div>
 						<div class="form-group">
 							<label for="yearOfPassing">Year of Passing</label>
-							<input type="date"  name="yearOfPassing" class="form-control" id="year" placeholder="Enter your year of passing" >
+							<select name="yearOfPassing" class="form-control">
+								<c:forEach var="year" begin="1990" end="2018" step="1">
+									<option value="${year }">${year }</option>
+								</c:forEach>
+							</select>
 						</div>
 						<div class="form-group">
 							<label for="grading">Grading System</label>
-							<select  name="education_type" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="Select system">
+							<select  name="educationType" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="Select system">
 							  <option value="Scale 10 Grading System">Scale 10 Grading System</option>
 							  <option value="Scale 4 Grading System">Scale 4 Grading System</option>
 							  <option value="% Marks out of 100 Max">% Marks out of 100 Max</option>
@@ -114,7 +120,11 @@
 							  <option value="State Board">State Board</option>
 							 </select><br>
 							<input type="text"  name="marks" class="form-control" id="marks" placeholder="Enter your marks" ><br>
-							<input type="date"  name="yearOfPassing" class="form-control" id="year" placeholder="Enter your passing year" ><br>
+							<select name="yearOfPassing" class="form-control">
+								<c:forEach var="year" begin="1990" end="2018" step="1">
+									<option value="${year }">${year }</option>
+								</c:forEach>
+							</select><br>
 							<select  name="board" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
@@ -147,7 +157,11 @@
 							  <option value="State Board">State Board</option>
 							 </select><br>
 							<input type="text"  name="marks" class="form-control" id="marks_m" placeholder="Enter your marks" ><br>
-							<input type="date" name="yearOfPassing" class="form-control" id="year_m" placeholder="Enter your passing year" ><br>
+							<select name="yearOfPassing" class="form-control">
+								<c:forEach var="year" begin="1990" end="2018" step="1">
+									<option value="${year}">${year }</option>
+								</c:forEach>
+							</select><br>
 							<select  name="board" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
@@ -180,15 +194,14 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="work_pre">Specify your preference: </label>
-							<label class="radio-inline"><input type="radio" name="preference" value="full-time"> Full-Time</label>
-							<label class="radio-inline"><input type="radio" name="preference" value="part-time"> Part-Time</label>
-							<label class="radio-inline"><input type="radio" name="preference" value="internship"> Internship</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="FULL_TIME"> FULL-TIME</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="PART_TIME"> PART-TIME</label>
+							<label class="radio-inline"><input type="radio" name="preference" value="INTERNSHIP"> INTERNSHIP</label>
  						</div>
  						<div class="form-group">
  							<label for="start_date"> When can you start working? </label>
- 							<label class="radio-inline"><input type= "radio" name="start" value="immediately"> Immediately</label> 
- 							<label class="radio-inline"><input type="radio" name="start"  value="date"> Date </label>
- 							<label class="radio-inline">	<input type="date" name="start" > </label>
+ 							<label class="radio-inline"><input type= "radio" name="startDate" value="IMMEDIATELY"> IMMEDIATELY </label> 
+ 							<label class="radio-inline"><input type="radio" name="startDate"  value="LATER_DATE"> LATER DATE </label>
  						</div>
  						<div class="form-group">
  							<label for="location"> Preferred location: </label>
@@ -229,9 +242,9 @@
 						</div>
 						<div class="form-group">
 							<label for="duration"> Duration </label>
-							<input type= "date" name="duration_start" id="date_start" class="form-control">
+							<input type= "text" name="duration_start" id="date_start" class="form-control">
 							<h5> To </h5>
-							<input type="date"  name="duration_end" id="date-end" class="form-control">
+							<input type="text"  name="duration_end" id="date-end" class="form-control">
 						</div>
 						<div class="form-group">
 							<label for="details"> Details</label>
@@ -285,17 +298,20 @@ $.fn.serializeObject = function()
 };
 function updateUserInfo(){
 	var userInfo={};
-	var ugData=JSON.stringify($("#updateGraduation").serializeObject());
-	var twelfthData=JSON.stringify($("#updateTwelfth").serializeObject());
-	var tenthData=JSON.stringify($("#updateTenth").serializeObject());
-	var workData=JSON.stringify($("#updateWork").serializeObject());
-	var internData=JSON.stringify($("#updateInternship").serializeObject());
+	var ugData=($("#updateGraduation").serializeObject());
+	var twelfthData=($("#updatetwelfth").serializeObject());
+	var tenthData=($("#updateTenth").serializeObject());
+	var workData=($("#updateWork").serializeObject());
+	var internData=($("#updateInternship").serializeObject());
+	// ugData.educationType='REGULAR';
 	userInfo.tenthStandard=tenthData;
 	userInfo.twelfthStandard=twelfthData;
 	userInfo.graduation=ugData;
 	userInfo.workExperience=workData;
-	console.log(JSON.stringify(userData));
-	var url="http://localhost:8080/Training/user/updateProfile";
+	userInfo.internship=internData;
+	console.log(JSON.stringify(userInfo));
+	
+	var url="http://localhost:8080/Dew-Training/updateUserInfo";
 	$.ajax({
         url : url,
         type : 'POST',

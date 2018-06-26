@@ -5,8 +5,8 @@ import java.util.Date;
 public class Internship {
 
 	private String company;
-	private int duration_start;
-	private int duration_end;
+	private String duration_start;
+	private String duration_end;
 	private String details;
 	
 	public String getCompany() {
@@ -15,16 +15,16 @@ public class Internship {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public int getDuration_start() {
+	public String getDuration_start() {
 		return duration_start;
 	}
-	public void setDuration_start(int duration_start) {
+	public void setDuration_start(String duration_start) {
 		this.duration_start = duration_start;
 	}
-	public int getDuration_end() {
+	public String getDuration_end() {
 		return duration_end;
 	}
-	public void setDuration_end(int duration_end) {
+	public void setDuration_end(String duration_end) {
 		this.duration_end = duration_end;
 	}
 	public String getDetails() {

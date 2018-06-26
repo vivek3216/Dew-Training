@@ -1,12 +1,11 @@
 package com.dew.training.dto;
 
-import com.dew.training.enums.EducationType;
 
 public class College {
 	private String name;
 	private String specialization;
 	private int yearOfPassing;
-	private EducationType educationType;
+	private String educationType;
 	private String marks;
 	private String universityName;
 
@@ -36,10 +35,10 @@ public class College {
 	public void setYearOfPassing(int yearOfPassing) {
 		this.yearOfPassing = yearOfPassing;
 	}
-	public EducationType getEducationType() {
+	public String getEducationType() {
 		return educationType;
 	}
-	public void setEducationType(EducationType educationType) {
+	public void setEducationType(String educationType) {
 		this.educationType = educationType;
 	}
 	public String getSpecialization() {

@@ -57,11 +57,11 @@ public class FrontController extends BaseController{
 	
 	@RequestMapping("/user/jobProfile")
 	public ModelAndView openJobProfilePage(HttpServletRequest request){
-		int userId=Integer.valueOf((String) request.getAttribute("dewUser"));
+		/*int userId=Integer.valueOf((String) request.getAttribute("dewUser"));
 		User user = userService.getUserByUserId(userId);
 		if(user==null) {
 			
-		}
+		}*/
 		ModelAndView modelAndView = new ModelAndView("jobProfile");
 		return modelAndView;
 	}

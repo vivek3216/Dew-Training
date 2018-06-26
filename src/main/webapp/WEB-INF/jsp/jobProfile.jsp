@@ -7,6 +7,26 @@
 <title>User Profile</title>
 <%-- <%@include file="includes/include-css.jsp"%> --%>
 
+<style type="text/css">
+
+.myform {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -25,7 +45,7 @@
 							  </div> 
 							  <div class="form-group">
 							  	<label for="bio"> Describe your professional background </label>
-							  	<textarea rows="5" cols="5" class="form-control" id="bio"></textarea>
+							  	<textarea name="bio" rows="5" cols="5" class="form-control" id="bio"></textarea>
 							  </div>
 							  <div class="form-group">
 							  	<label for="industry">Industry</label>
@@ -57,7 +77,7 @@
 							  </div>
 							  <div class="form-group">
 							  	<label for="fuction">Functional Area </label>
-							  	<select  name="area" id="area" class="form-control" aria-describedby="emailHelp">
+							  	<select  name="functionalArea" id="area" class="form-control" aria-describedby="emailHelp">
 								  <option value="Accounting/Finance/Tax">Accounting/Finance/Tax</option>
 								  <option value="Agent">Agent</option>
 								  <option value="Analytics/ Business Intelligence">Analytics/ Business Intelligence</option>
@@ -79,11 +99,11 @@
 							  </div>
 							  <div class="form-group">
 							  	<label for="role">Role </label>
-							  	<input type="text" id="role" class="form-control">
+							  	<input name="role" type="text" id="role" class="form-control">
 							  </div>
 							  <div class="form-group">
 							  	<label for="loc">Preferred Work Location</label>
-							  	<select  name="city" id="location" class="form-control" aria-describedby="emailHelp" >
+							  	<select  name="workLocation" id="location" class="form-control" aria-describedby="emailHelp" >
 								  <option value="Ahmedabad">Ahemdabad</option>
 								  <option value="Bangalore">Bangalore</option>
 								  <option value="Bhopal">Bhopal</option>
@@ -106,23 +126,23 @@
 							  </div>
 							  <div class="form-group">
 							  	<label for="type_job">Desired Job Type</label><br>
-							  	<input type="radio" name="jobtype"> Permanent
-							  	<input type="radio" name="jobtype"> Temporary/ Contract
-							  	<input type="radio" name="jobtype"> Both
+							  	<input type="radio" name="jobType" value="PERMENANT"> Permanent
+							  	<input type="radio" name="jobType" value="TEMPORARY"> Temporary/ Contract
+							  	<input type="radio" name="jobType" value="BOTH" > Both
 							  </div>
 							  <div class="form-group">
 							  	<label for="type_employ">Desired Employment Type</label><br>
-							  	<input type="radio" name="emptype"> Full-Time
-							  	<input type="radio" name="emptype"> Part-Time
-							  	<input type="radio" name="emptype"> Both
+							  	<input type="radio" name="employmentType" value="FULL_TIME"> Full-Time
+							  	<input type="radio" name="employmentType" value="PART_TIME"> Part-Time
+							  	<input type="radio" name="employmentType" value="INTERNSHIP"> Both
 							  </div>
 							  <div class="form-group">
 							  	<label for="skills">Skills</label>
-							  	<textarea rows="5" cols="5" class="form-control" id="skills"></textarea>
+							  	<textarea name="skills" rows="5" cols="5" class="form-control" id="skills"></textarea>
 							  </div>
 							  <div class="form-group">
 							  	<label for="status">Marital Status</label>
-							  	<select name="status" id="status" class="form-control">
+							  	<select name="maritalStatus" id="status" class="form-control">
 							  		<option value="Married">Married</option>
 							  		<option value="Single">Single</option>
 							  		<option value="Widowed">Widowed</option>
@@ -143,7 +163,7 @@
 							  </div>
 							  <hr>
 							  <div class="form-group">
-							  	<b><input type="submit" class="form-control" value="Submit and view Profile"></b>
+							  	<b><input type="button" class="form-control"  onclick="updateJobInfo()" value="Submit and view Profile"></b>
 							  </div>
 							  <br>
 						</form>
@@ -159,4 +179,40 @@
 	<%@include file="includes/include-js.jsp"%> 
 	
 </body>
+
+<script type="text/javascript">
+
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+function updateJobInfo(){
+	var formData=$("#updateJob").serializeObject();
+	console.log(formData);
+	var url="http://localhost:8080/Dew-Training/updateJobInfo";
+	$.ajax({
+        url : url,
+        type : 'POST',
+        data:JSON.stringify(formData),
+        dataType : "json",
+        contentType : "application/json",
+        success : function(data) {
+			console.log(data);
+        }
+      });
+}
+
+</script>
 </html>
