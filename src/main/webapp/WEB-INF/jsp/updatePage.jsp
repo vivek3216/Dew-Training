@@ -99,6 +99,7 @@
 							<input type="text" name="universityName" class="form-control" id="college" placeholder="Enter college/institute" >
 						</div>
 					</div>
+					</div>
 					</form>
 					<form id="updatetwelfth">
 							<h4>Senior Secondary and Higher Secondary Education Details</h4>
@@ -167,6 +168,7 @@
 							  <option value="Urdu">Urdu</option> 
 							</select><br>
 						</div>
+						
 						</form>
 					
 				
@@ -265,18 +267,6 @@
 
 <script type="text/javascript">
 
-var userInfo={};
-var ugData=JSON.stringify($("#updateGraduation").serializeObject());
-var twelfthData=JSON.stringify($("#updateTwelfth").serializeObject());
-var tenthData=JSON.stringify($("#updateTenth").serializeObject());
-var workData=JSON.stringify($("#updateWork").serializeObject());
-var internData=JSON.stringify($("#updateInternship").serializeObject());
-userInfo.tenthStandard=tenthData;
-userInfo.twelfthStandard=twelfthData;
-userInfo.graduation=ugData;
-userInfo.workExperience=workData;
-console.log(userInfo)
-
 $.fn.serializeObject = function()
 {
    var o = {};
@@ -294,13 +284,22 @@ $.fn.serializeObject = function()
    return o;
 };
 function updateUserInfo(){
-	var formData=$("#updateForm").serializeObject();
-	console.log(formData);
+	var userInfo={};
+	var ugData=JSON.stringify($("#updateGraduation").serializeObject());
+	var twelfthData=JSON.stringify($("#updateTwelfth").serializeObject());
+	var tenthData=JSON.stringify($("#updateTenth").serializeObject());
+	var workData=JSON.stringify($("#updateWork").serializeObject());
+	var internData=JSON.stringify($("#updateInternship").serializeObject());
+	userInfo.tenthStandard=tenthData;
+	userInfo.twelfthStandard=twelfthData;
+	userInfo.graduation=ugData;
+	userInfo.workExperience=workData;
+	console.log(JSON.stringify(userData));
 	var url="http://localhost:8080/Training/user/updateProfile";
 	$.ajax({
         url : url,
         type : 'POST',
-        data:JSON.stringify(formData),
+        data:JSON.stringify(userInfo),
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
