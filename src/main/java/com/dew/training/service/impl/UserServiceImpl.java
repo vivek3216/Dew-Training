@@ -62,8 +62,12 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public JobInfo updatejobProfile(JobInfo jobInfo) throws Exception {
 		// TODO Auto-generated method stub
-		if(jobInfo.getJob_profile_id()>0)
+		JobInfo info=userDAO.getJobInfo(1);
+		if(info.getJob_profile_id()>0) {
+			jobInfo.setJob_profile_id(info.getJob_profile_id());
 			userDAO.updatejob(jobInfo);
+		}
+			
 		else
 			jobInfo =userDAO.addJobProfile(jobInfo);
 			return jobInfo;
@@ -99,6 +103,12 @@ public class UserServiceImpl implements UserService{
 		params.put("password", password);
 		params.put("domainName",ApplicationProperties.getProperty("domainName"));
 		emailService.sendMail(MailMessageType.FORGOT_PASSWORD,params);
+	}
+
+	@Override
+	public JobInfo getJobInfo(int userId) {
+		// TODO Auto-generated method stub
+		return userDAO.getJobInfo(userId);
 	}
 
 	

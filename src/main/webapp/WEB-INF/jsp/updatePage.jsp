@@ -53,7 +53,7 @@
 				 	<div class="panel-body">
 						<div class="form-group">
 					 		<label for="course_select">UG Course</label> 
-							<select  name="name" id="courseug" class="form-control"> 
+							<select  name="name" id="courseug" class="form-control" value="${userInfo.graduation.name }"> 
 							  <option value="B.Com">B.Com</option>
 							  <option value="B.A.">B.A.</option>
 							  <option value="B.Arch">B.Arch</option>
@@ -77,11 +77,11 @@
 						</div>
 						<div class="form-group">
 							<label for="specialization">Specialization</label>
-							<input type="text" name="specialization" class="form-control" id="specialization" placeholder="Enter your specialization" >
+							<input type="text" name="specialization" class="form-control" id="specialization" placeholder="Enter your specialization" value="${userInfo.graduation.specialization }">
 						</div>
 						<div class="form-group">
 							<label for="yearOfPassing">Year of Passing</label>
-							<select name="yearOfPassing" class="form-control">
+							<select name="yearOfPassing" class="form-control" value="${userInfo.graduation.yearOfPassing }">
 								<c:forEach var="year" begin="1990" end="2018" step="1">
 									<option value="${year }">${year }</option>
 								</c:forEach>
@@ -89,7 +89,7 @@
 						</div>
 						<div class="form-group">
 							<label for="grading">Grading System</label>
-							<select  name="educationType" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="Select system">
+							<select  name="educationType" id="grade_sys" class="form-control" aria-describedby="emailHelp" value="${userInfo.graduation.educationType }">
 							  <option value="Scale 10 Grading System">Scale 10 Grading System</option>
 							  <option value="Scale 4 Grading System">Scale 4 Grading System</option>
 							  <option value="% Marks out of 100 Max">% Marks out of 100 Max</option>
@@ -98,11 +98,11 @@
 						</div>
 						<div class="form-group">
 							<label for="marks">Marks</label>
-							<input type="text" name="marks" class="form-control" id="marks" placeholder="Enter marks" >
+							<input type="text" name="marks" class="form-control" id="marks" placeholder="Enter marks" value="${userInfo.graduation.marks }">
 						</div>
 						<div class="form-group">
 							<label for="college">College/Institute, City</label>
-							<input type="text" name="universityName" class="form-control" id="college" placeholder="Enter college/institute" >
+							<input type="text" name="universityName" class="form-control" id="college" placeholder="Enter college/institute" value="${userInfo.graduation.universityName }" >
 						</div>
 					</div>
 					</div>
@@ -112,20 +112,20 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="class12">Class 12</label>
-							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
+							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board" value="${userInfo.twelfthStandard.name }">
 							  <option value="CBSE">CBSE</option>
 							  <option value="CISCE(ICSE/ISC)">CISCE(ICSE/ISC)</option>
 							  <option value="Diploma">Diploma</option>
 							  <option value="National Open School">National Open School</option>
 							  <option value="State Board">State Board</option>
 							 </select><br>
-							<input type="text"  name="marks" class="form-control" id="marks" placeholder="Enter your marks" ><br>
-							<select name="yearOfPassing" class="form-control">
+							<input type="text"  name="marks" class="form-control" id="marks" placeholder="Enter your marks" value="${userInfo.twelfthStandard.marks }"><br>
+							<select name="yearOfPassing" class="form-control" value="${userInfo.twelfthStandard.yearOfPassing }">
 								<c:forEach var="year" begin="1990" end="2018" step="1">
 									<option value="${year }">${year }</option>
 								</c:forEach>
 							</select><br>
-							<select  name="board" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
+							<select  name="board" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium" value="${userInfo.twelfthStandard.board }">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
 							  <option value="English">English</option>
@@ -149,20 +149,20 @@
 						<form id="updateTenth">
 						<div class="form-group">
 							<label for="class10">Class 10</label>
-							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
+							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board" value="${userInfo.tenthStandard.name }">
 							  <option value="CBSE">CBSE</option>
 							  <option value="CISCE(ICSE/ISC)">CISCE(ICSE/ISC)</option>
 							  <option value="Diploma">Diploma</option>
 							  <option value="National Open School">National Open School</option><br>
 							  <option value="State Board">State Board</option>
 							 </select><br>
-							<input type="text"  name="marks" class="form-control" id="marks_m" placeholder="Enter your marks" ><br>
-							<select name="yearOfPassing" class="form-control">
+							<input type="text"  name="marks" class="form-control" id="marks_m" placeholder="Enter your marks" value="${userInfo.tenthStandard.marks }" ><br>
+							<select name="yearOfPassing" class="form-control" value="${userInfo.tenthStandard.yearOfPassing }">
 								<c:forEach var="year" begin="1990" end="2018" step="1">
 									<option value="${year}">${year }</option>
 								</c:forEach>
 							</select><br>
-							<select  name="board" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium">
+							<select  name="board" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium" value="${userInfo.tenthStandard.board }">
 							  <option value="Assamese/Asomiya">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla">Bengali/Bangla</option>
 							  <option value="English">English</option>
@@ -205,7 +205,7 @@
  						</div>
  						<div class="form-group">
  							<label for="location"> Preferred location: </label>
- 							<select  name="location" id="location" class="form-control" aria-describedby="emailHelp" >
+ 							<select  name="location" id="location" class="form-control" aria-describedby="emailHelp" ${userInfo.workExperience.location }>
 							  <option value="Ahmedabad">Ahemdabad</option>
 							  <option value="Bangalore">Bangalore</option>
 							  <option value="Bhopal">Bhopal</option>
@@ -238,17 +238,17 @@
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="company-name"> Company </label>
-							<input type="text" name="company" id="company_name" class="form-control">
+							<input type="text" name="company" id="company_name" class="form-control" value="${userInfo.internship.company }">
 						</div>
 						<div class="form-group">
 							<label for="duration"> Duration </label>
-							<input type= "text" name="duration_start" id="date_start" class="form-control">
+							<input type= "text" name="duration_start" id="date_start" class="form-control" value="${userInfo.internship.duration_start }">
 							<h5> To </h5>
-							<input type="text"  name="duration_end" id="date-end" class="form-control">
+							<input type="text"  name="duration_end" id="date-end" class="form-control" value="${userInfo.internship.duration_end }">
 						</div>
 						<div class="form-group">
 							<label for="details"> Details</label>
-							<textarea rows="5" cols="10" class="form-control" name="details" id="details"></textarea>
+							<textarea rows="5" cols="10" class="form-control" name="details" id="details" placeholder="${userInfo.internship.details }"></textarea>
 						</div>
 					</div>
 				</div>

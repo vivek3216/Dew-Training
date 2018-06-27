@@ -25,105 +25,111 @@
                     <h2 class="text-left"><strong>Bio: </strong><br> </h2>
                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus. </p>
                     <br>
-                    <div class="panel panel-default">
+                   <!--   <div class="panel panel-default"> -->
                     </center>
+                    
+                    <input type="button" value="Update Education Details" onclick="updateEducation()">
                     <h2 class="text-left"><strong>UG Education Details- </strong><br> </h2>
                     <div class="panel panel-default">
                     <p class="text-left"><strong>UG Course: </strong><br>
-                       B-Tech </p>
+                       ${userInfo.graduation.name } </p>
                        <p class="text-left"><strong>Specialization </strong><br>
-                       Website Development </p>
+                       ${userInfo.graduation.specialization }) </p>
                        <p class="text-left"><strong>YearOfPassing </strong><br>
-                       2019 </p>
+                       ${userInfo.graduation.yearOfPassing } </p>
                        <p class="text-left"><strong>Grading System</strong><br>
-                       Percentage(outof100) </p>
+                       ${userInfo.graduation.educationType } </p>
                        <p class="text-left"><strong>Marks </strong><br>
-                       78%</p>
+                       ${userInfo.graduation.marks }</p>
                        <p class="text-left"><strong>College/Institute</strong><br>
-                       ModyUniversity School of Science and Technology</p>
+                       ${userInfo.graduation.universityName }</p>
                        <br>
-                       </div>
+                      </div>
                        <h2 class="text-left"><strong>Senior Secondary and Higher Secondary Education Details </strong><br> </h2>
-                       <div class="panel panel-default">
-                       <h3 class="text-left"><strong>Class 12 </strong><br> </h3>
+                      <div class="panel panel-default">
+                       <h3 class="text-left"><strong>Class 12</strong><br> </h3>
                        <p class="text-left"><strong>Board/Diploma</strong><br>
-                       CBSE</p>
+                       ${userInfo.twelfthStandard.name }</p>
                        <p class="text-left"><strong>Marks</strong><br>
-                       80%</p>
+                       ${userInfo.twelfthStandard.marks }</p>
                        <p class="text-left"><strong>Passing Year</strong><br>
-                       2015</p>
+                       ${userInfo.twelfthStandard.yearOfPassing }</p>
                        <p class="text-left"><strong>Medium</strong><br>
-                       English</p>
+                       ${userInfo.twelfthStandard.board }</p>
                        </div>
                        
                        <h3 class="text-left"><strong>Class 10 </strong><br> </h3>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Board/Diploma</strong><br>
-                       CBSE</p>
+                       ${userInfo.tenthStandard.name }</p>
                        <p class="text-left"><strong>Marks</strong><br>
-                       80%</p>
+                       ${userInfo.tenthStandard.marks }</p>
                        <p class="text-left"><strong>Passing Year</strong><br>
-                       2013</p>
+                       ${userInfo.tenthStandard.yearOfPassing }</p>
                        <p class="text-left"><strong>Medium</strong><br>
-                       English</p>
+                       ${userInfo.tenthStandard.board }</p>
                        </div>
+                       
                        <h2 class="text-left"><strong>Work preference- </strong><br> </h2>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Secification of Preference</strong><br>
-                       Internship</p>
+                       ${userInfo.workExperience.preference }</p>
                        <p class="text-left"><strong>When Can I Start Working</strong><br>
-                       Immediately</p>
+                       ${userInfo.workExperience.startDate }</p>
                        <p class="text-left"><strong>Preferred Location</strong><br>
-                       Ahemdabad</p>
+                       ${userInfo.workExperience.location }</p>
                        </div>
                        
                        <h2 class="text-left"><strong>Internship Details- </strong><br> </h2>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Company</strong><br>
-                       Dew Solutions</p>
+                       ${userInfo.internship.company }</p>
                        <p class="text-left"><strong>Duration</strong><br>
-                       5/6/2018</p>
+                        ${userInfo.internship.duration_start }</p>
                        <p class="text-left"><strong>To</strong><br>
-                       5/7/2018</p>
+                        ${userInfo.internship.duration_end }</p>
                        <p class="text-left"><strong>Details</strong><br>
-                       Worked on a website Development project, using JSP,Java,JS,CSS,Bootstrap etc</p>
+                       ${userInfo.internship.details }</p>
                        </div>
                        
+                       
+                       <input type="button" value="Update Job Details" onclick="updateJob()">
                        <h2 class="text-left"><strong>Job Details- </strong> </h2>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Profile Picture</strong><br>
-                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                     <!--   <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div> -->
                        <br>
                        
                        <p class="text-left"><strong>Describe your professional background in one line</strong><br>
-                       Jobseeker  with B.Tech/B.E. in Computers currently living in Ahmedabad</p>
+                       ${jobInfo.bio }</p>
                        <p class="text-left"><strong>Industry</strong><br>
-                       IT-Hardware/Software Services</p>
+                       ${jobInfo.industry }</p>
                        <p class="text-left"><strong>Functional Area</strong><br>
-                       Web/Graphic Design/Visualiser</p>
+                       ${jobInfo.functionalArea }</p>
                        <p class="text-left"><strong>Role</strong><br>
-                       Developer</p>
-                       <p class="text-left"><strong>Preffered Work Location</strong><br>
-                       Ahmadabad</p>
+                       ${jobInfo.role }</p>
+                       <p class="text-left"><strong>Preferred Work Location</strong><br>
+                       ${jobInfo.workLocation }</p>
                        <p class="text-left"><strong>Desired Job Type</strong><br>
-                       Permanent</p>
-                       <p class="text-left"><strong>Desired Employement Type</strong><br>
-                       Full Time</p>
+                       ${jobInfo.jobType }</p>
+                       <p class="text-left"><strong>Desired Employment Type</strong><br>
+                       ${jobInfo.employmentType }</p>
                        <p class="text-left"><strong>Skills</strong><br>
-                       Java, HTML, Bootstrap, CSS, JS</p>
+                       ${jobInfo.skills }</p>
                        <p class="text-left"><strong>Marital Status</strong><br>
-                       Single/Unmarried</p>
+                       ${jobInfo.maritalStatus }</p>
+                       
                        <p class="text-left"><strong>Aadhar Card</strong><br>
-                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                      <!--   <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div> -->
                        <br>
                        <p class="text-left"><strong>Passport</strong><br>
-                       <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div>
+                  <!--      <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div> -->
                         <br>
                        <p class="text-left"><strong>Resume</strong><br>
-                       <link rel="stylesheet" type="text/css" href="css/file-upload.css" />
+                <!--         <link rel="stylesheet" type="text/css" href="css/file-upload.css" />
                        <script src="js/file-upload.js"></script>
                                   <script type="text/javascript">
                                   $(document).ready(function() {
@@ -138,10 +144,10 @@
                               </label>
                               </div>
                             </div>
-                       </form>
+                       </form> -->
         
                        </div>
-                    	</div>
+                       
                     	</div>
                     	
                     	
@@ -151,4 +157,18 @@
 	<%@include file="includes/include-js.jsp"%>
 	
 </body>
+
+<script type="text/javascript">
+
+function updateEducation(){
+	
+	location.href="http://localhost:8080/Dew-Training/user/addupdateProfile";
+}
+
+function updateJob(){
+	
+	location.href="http://localhost:8080/Dew-Training/user/addjobProfile";
+}
+
+</script>
 </html>

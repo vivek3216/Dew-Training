@@ -22,5 +22,7 @@ public interface UserDao {
 
 	public UserInfo getUserInfo(int userId);
 	
+	public JobInfo getJobInfo(int userId);
+	
 	public void getPassword(String Password);
 }
