@@ -212,13 +212,25 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 	@Override
 	public void updateProfile(UserInfo userInfo) throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE user_profile set course_name= ?,course_specialization= ?,course_year= ?,education_type= ?,course_marks= ?,college,board_name_1= ?,board_marks_1= ?,board_year_1= ?,board_medium_1= ?,board_name_2= ?,board_marks_2= ?,board_year_2= ?,board_medium_2= ?,work_preference= ?,start_time= ?,location= ?,company_name= ?,start_date= ?,end_date= ?,project_details= ?";
+		String sql = "UPDATE user_profile set course_name= ?,course_specialization= ?,course_year= ?,education_type= ?,course_marks= ?,"
+				+ "college= ?,board_name_1= ?,board_marks_1= ?,board_year_1= ?,board_medium_1= ?,board_name_2= ?,board_marks_2= ?,"
+				+ "board_year_2= ?,board_medium_2= ?,work_preference= ?,start_time= ?,location= ?,company_name= ?,start_date= ?,end_date= ?,"
+				+ "project_details= ? WHERE user_profile_id= ?";
+		getJdbcTemplate().update(sql,userInfo.getGraduation().getName(),userInfo.getGraduation().getSpecialization(),userInfo.getGraduation().getYearOfPassing(),
+				userInfo.getGraduation().getEducationType(),userInfo.getGraduation().getMarks(),userInfo.getGraduation().getUniversityName(),
+				userInfo.getTwelfthStandard().getName(),userInfo.getTwelfthStandard().getMarks(),userInfo.getTwelfthStandard().getYearOfPassing(),
+				userInfo.getTwelfthStandard().getBoard(),userInfo.getTenthStandard().getName(),userInfo.getTenthStandard().getMarks(),
+				userInfo.getTenthStandard().getYearOfPassing(),userInfo.getTenthStandard().getBoard(),userInfo.getWorkExperience().getPreference().getValue(),
+				userInfo.getWorkExperience().getStartDate().getValue(), userInfo.getWorkExperience().getLocation(),userInfo.getInternship().getCompany(),
+				userInfo.getInternship().getDuration_start(),userInfo.getInternship().getDuration_end(),userInfo.getInternship().getDetails(),
+				userInfo.getUser_profile_id());
 		
 	}
 
 	@Override
 	public JobInfo addJobProfile(final JobInfo jobInfo) {
-		final String sql = "INSERT INTO job_profile (bio,industry,functional_area,role,work_location,job_type,employ_type,skills,marital,user_id) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		final String sql = "INSERT INTO job_profile (bio,industry,functional_area,role,work_location,job_type,employ_type,skills,marital,user_id)"
+				+ " VALUES(?,?,?,?,?,?,?,?,?,?)";
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		getJdbcTemplate().update(new PreparedStatementCreator() {
 			

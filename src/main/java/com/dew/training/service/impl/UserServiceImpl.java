@@ -52,8 +52,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserInfo updateuserProfile(UserInfo userInfo) throws Exception{
 		// TODO Auto-generated method stub
-		if(userInfo.getUser_profile_id()>0)
+		UserInfo info=userDAO.getUserInfo(1);
+		if(info.getUser_profile_id()>0) {
+			userInfo.setUser_profile_id(info.getUser_profile_id());
 			userDAO.updateProfile(userInfo);
+		}
 		else
 			userInfo =userDAO.addUserProfile(userInfo);
 			return userInfo;		
