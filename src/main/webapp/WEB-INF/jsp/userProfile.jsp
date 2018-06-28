@@ -4,8 +4,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>User Profile</title>
 <%-- <%@include file="includes/include-css.jsp"%> --%>
+
+<style type="text/css">
+
+	body {
+		font-family:"Monospace !important ";
+  
+	}
+	
+	.panel{
+		padding: 10px 10px 10px 10px;
+		border-style: dotted !important;
+		border-width: 3px !important;
+		border-color:  #ff99aa !important;
+		background-color: #f2f2f2 !important; 
+		line-height: 1.6 !important;
+		
+	}
+	
+	.btn {
+		align: right !important;
+		position: absolute;
+		right: 100px;
+		background-color: #FF8095 !important;
+	}
+	
+	h3 {
+		background-color: none;
+		color: #994d00 !important;
+		text-transform: uppercase;
+	}
+	
+	p {
+		background-color:none;
+		font-size: 15px;
+	}
+</style>
 
 </head>
 <body>
@@ -19,23 +56,23 @@
                         <span class="label label-info">Adobe CS 5.5</span>
                         <span class="label label-info">Microsoft Office</span>
                         <span class="label label-success">Windows XP, Vista, 7</span>
-                    </center>
+         </center>
                     <hr>
-<center style="padding-top: 0;">
-                    <h2 class="text-left"><strong>Bio: </strong><br> </h2>
-                       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus. </p>
+                    <center style="padding-top: 0;">
+                    <h3 class="text-left"><strong>Bio </strong><br> </h3>
+                       <p> ${jobInfo.bio} </p>
                     <br>
                    <!--   <div class="panel panel-default"> -->
                     </center>
                     
-                    <input type="button" value="Update Education Details" onclick="updateEducation()">
-                    <h2 class="text-left"><strong>UG Education Details- </strong><br> </h2>
+                    <b><br><input type="button" class="btn btn-default" align="right" value="Update Education Details" onclick="updateEducation()"></b>
+                    <br><i class="fa fa-graduation-cap fa-2x"></i><h3 class="text-left"><strong>UG Education Details </strong><br> </h3>
                     <div class="panel panel-default">
                     <p class="text-left"><strong>UG Course: </strong><br>
                        ${userInfo.graduation.name } </p>
                        <p class="text-left"><strong>Specialization </strong><br>
                        ${userInfo.graduation.specialization }) </p>
-                       <p class="text-left"><strong>YearOfPassing </strong><br>
+                       <p class="text-left"><strong>Year Of Passing </strong><br>
                        ${userInfo.graduation.yearOfPassing } </p>
                        <p class="text-left"><strong>Grading System</strong><br>
                        ${userInfo.graduation.educationType } </p>
@@ -45,9 +82,9 @@
                        ${userInfo.graduation.universityName }</p>
                        <br>
                       </div>
-                       <h2 class="text-left"><strong>Senior Secondary and Higher Secondary Education Details </strong><br> </h2>
+                      <br><i class="fa fa-child fa-2x"></i><h3 class="text-left"><strong>Senior Secondary and Higher Secondary Education Details </strong><br> </h3>
+                      <br><h4 class="text-left"><strong>Class 12</strong><br> </h4>
                       <div class="panel panel-default">
-                       <h3 class="text-left"><strong>Class 12</strong><br> </h3>
                        <p class="text-left"><strong>Board/Diploma</strong><br>
                        ${userInfo.twelfthStandard.name }</p>
                        <p class="text-left"><strong>Marks</strong><br>
@@ -58,7 +95,7 @@
                        ${userInfo.twelfthStandard.board }</p>
                        </div>
                        
-                       <h3 class="text-left"><strong>Class 10 </strong><br> </h3>
+                       <br><h4 class="text-left"><strong>Class 10 </strong><br> </h4>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Board/Diploma</strong><br>
                        ${userInfo.tenthStandard.name }</p>
@@ -70,17 +107,17 @@
                        ${userInfo.tenthStandard.board }</p>
                        </div>
                        
-                       <h2 class="text-left"><strong>Work preference- </strong><br> </h2>
+                       <br><i class="fa fa-briefcase fa-2x"></i><h3 class="text-left"><strong>Work preference </strong><br> </h3>
                        <div class="panel panel-default">
-                       <p class="text-left"><strong>Secification of Preference</strong><br>
+                       <p class="text-left"><strong>Specification of Preference</strong><br>
                        ${userInfo.workExperience.preference }</p>
-                       <p class="text-left"><strong>When Can I Start Working</strong><br>
+                       <p class="text-left"><strong>When Can I Start Working?</strong><br>
                        ${userInfo.workExperience.startDate }</p>
                        <p class="text-left"><strong>Preferred Location</strong><br>
                        ${userInfo.workExperience.location }</p>
                        </div>
                        
-                       <h2 class="text-left"><strong>Internship Details- </strong><br> </h2>
+                       <br><i class="fa fa-leanpub fa-2x"></i><h3 class="text-left"><strong>Internship Details </strong><br> </h3>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Company</strong><br>
                        ${userInfo.internship.company }</p>
@@ -93,8 +130,8 @@
                        </div>
                        
                        
-                       <input type="button" value="Update Job Details" onclick="updateJob()">
-                       <h2 class="text-left"><strong>Job Details- </strong> </h2>
+                       <b><br><input type="button"  class="btn btn-default" align="right" value="Update Job Details" onclick="updateJob()"></b>
+                       <br><i class="fa fa-building fa-2x"></i><h3 class="text-left"><strong>Job Details </strong> </h3>
                        <div class="panel panel-default">
                        <p class="text-left"><strong>Profile Picture</strong><br>
                      <!--   <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>

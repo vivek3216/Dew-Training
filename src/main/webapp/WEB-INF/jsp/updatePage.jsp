@@ -13,7 +13,7 @@
 <style type="text/css">
 
 .myform {
-    position: relative;
+    position: relative; 
     display: -ms-flexbox;
     display: flex;
     padding: 1rem;
@@ -27,9 +27,13 @@
     border-radius: 1.1rem;
     outline: 0;
 }
-#UG-education{
-	margins: {top:2, left:2, right:2, bottom:2} !important;
-	cmargins: {top:0, left:0, right:0, bottom:0} !important;
+
+form {
+    width: 100%;
+    margin: 0 auto;
+}
+.btn{
+	background-color: #FF8095 !important;
 }
 </style>
 </head>

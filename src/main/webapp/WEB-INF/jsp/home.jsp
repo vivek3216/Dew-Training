@@ -267,28 +267,7 @@
 			</div>
 		</div>
       </div>   
-      
-      
-      <div id="third" class="hidden">
-      		<nav class="navbar navbar-inverse navbar-fixed-top">
-      			<div class="container-fluid">
-      				<div class="navbar-header">
-				     	<a class="navbar-brand" href="#">JobSearch</a>
-				 	</div>
-				 <ul class="nav navbar-nav">
-				      <li class="active navbar-right"><a href="#">Home</a></li>
-				      <li class="navbar-right"><a href="#">Page 1</a></li>
-				      <li class="navbar-right"><a href="#">Page 2</a></li>
-				      <li class="navbar-right"><a href="#">Page 3</a></li>
-				  </ul>
-				</div>
-			</nav>
-		
-		
-      </div>
-      		
-      		
-      		
+        		
          
 </body>
 
@@ -352,9 +331,5 @@ function doLogin(){
 		$("#second").addClass('hidden');
 	}
 	
-	function openPage() {
-		$("#first").addClass('hidden');
-		$("#third").removeClass('hidden');
-	}
 </script>
 </html>

@@ -24,7 +24,9 @@
     border-radius: 1.1rem;
     outline: 0;
 }
-
+.btn{
+	background-color: #FF8095 !important;
+	}
 </style>
 
 </head>
@@ -167,10 +169,11 @@
 							  </div>
 							  <hr>
 							  <div class="form-group">
-							  	<b><input type="button" class="form-control"  onclick="updateJobInfo()" value="Submit and view Profile"></b>
+							  	<b><input type="button" class="form-control btn btn-default"  onclick="updateJobInfo()" value="Submit and view Profile"></b>
 							  </div>
 							  <br>
 						</form>
+						<br>
 					</div>
 			</div>
 		</div>
