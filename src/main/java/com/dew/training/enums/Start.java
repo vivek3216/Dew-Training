@@ -6,7 +6,7 @@ import java.util.Map;
 
 public enum Start {
 	
-IMMEDIATELY(1),DATE(2);
+IMMEDIATELY(1), LATER_DATE(2);
 	
 	private static final Map<Integer, Start> lookup = new HashMap<Integer, Start>();
 	private int val;

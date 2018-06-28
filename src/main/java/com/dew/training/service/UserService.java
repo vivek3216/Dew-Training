@@ -24,4 +24,8 @@ public interface UserService {
 	public UserInfo getUserInfo(int userId);
 
 	public void uploadFile(MultipartFile file, FileType fileType, int userId);
+
+	public JobInfo getJobInfo(int userId);
+
+	public void sendForgotPassword(String email);
 }

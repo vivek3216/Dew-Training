@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
 import com.dew.training.enums.FileType;
@@ -37,9 +38,9 @@ public class RestAPIController {
 		
 		@ResponseBody
 		@RequestMapping(value = "/forgotPassword",produces="application/json")
-		public String forgotPassword(@RequestParam String email) {
-			//
-		return null;
+		public void forgotPassword(@RequestParam String email) throws Exception {
+			System.out.println("Your Password :" +User.getPassword());
+			userService.sendForgotPassword(email);
 		}
 		
 		@ResponseBody
@@ -50,7 +51,25 @@ public class RestAPIController {
 			try {
 				userService.updateuserProfile(userInfo);
 			} catch (Exception e) {
-				status="faileu";
+				status="failed";
+				e.printStackTrace();
+				// TODO: handle exception
+				
+			}
+			
+			return status;
+		}
+		
+		@ResponseBody
+		@RequestMapping(value = "/updateJobInfo",method=RequestMethod.POST,produces="application/json")
+		public String updateJobInformation(@RequestBody JobInfo jobInfo,HttpServletRequest httpServletRequest) {
+			//update call
+			String status="success";
+			try {
+				userService.updatejobProfile(jobInfo);
+			} catch (Exception e) {
+				status="failed";
+				e.printStackTrace();
 				// TODO: handle exception
 				
 			}

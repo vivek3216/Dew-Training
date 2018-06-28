@@ -3,9 +3,10 @@ package com.dew.training.dto;
 public class UserInfo {
 	
 	private int user_profile_id;
+	private int user_id;
+	private College graduation;
 	private Schooling tenthStandard;
 	private Schooling twelfthStandard;
-	private College graduation;
 	private Work workExperience;
 	private Internship internship;
 	
@@ -46,5 +47,11 @@ public class UserInfo {
 	}
 	public void setUser_profile_id(int user_profile_id) {
 		this.user_profile_id = user_profile_id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 }
