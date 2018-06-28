@@ -1,16 +1,21 @@
 package com.dew.training.service.impl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.dew.training.dao.UserDao;
 import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
+import com.dew.training.enums.FileType;
 import com.dew.training.enums.MailMessageType;
 import com.dew.training.service.EmailService;
 import com.dew.training.service.UserService;
@@ -89,6 +94,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public void uploadFile(MultipartFile file, FileType fileType,int userId) {
+		String ext=fileType.toString().equals(FileType.RESUME) ? FilenameUtils.getExtension(file.getOriginalFilename()):".jpg";
+		String path=ApplicationProperties.getProperty("fileLocation")+ userId + "_" +fileType+"."+ext+"";
+		if(!StringUtils.isEmpty(file.getOriginalFilename())){
+			try {
+				File existingFile = new File(path);
+				if(existingFile.exists())
+					existingFile.delete();
+				file.transferTo(new File(path));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	public void sendForgotPassword(String email) {
 		User user = userDAO.getUserByEmail(email);
 		String password = null;

@@ -1,3 +1,122 @@
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+function submitUserInfo(){
+	var userInfo={};
+	var ugData=JSON.stringify($("#ugFrm").serializeObject());
+	var tenthData=JSON.stringify($("#tenthFrm").serializeObject());
+	var twelfthData=JSON.stringify($("#twelfthFrm").serializeObject());
+	var workData=JSON.stringify($("#workFrm").serializeObject());
+	var internData=JSON.stringify($("#internFrm").serializeObject());
+	userInfo.tenthStandard=tenthData;
+	userInfo.twelfthStandard=twelfthData;
+	userInfo.graduation=ugData;
+	userInfo.workExperience=workData;
+	console.log(userInfo)
+	var url="http://localhost:8090/Training/updateUserInfo/";
+	$.ajax({
+        url : url,
+        type : 'POST',
+        data:JSON.stringify(userInfo),
+        dataType : "json",
+        contentType : "application/json",
+        success : function(data) {
+			console.log(data);
+        }
+      });
+}
+
+function initFileUpload(){
+	/*data-url="../../api/uploadImages/"*/
+		$('#fileupload').css("visibility", "visible");
+		var intvlId;
+		var id;
+		$('.fileupload1').fileupload({
+			acceptFileTypes : /(\.|\/)(jpg|jpeg)$/i,
+			dataType : 'json',
+			progressInterval: 1000,
+			replaceFileInput : false,
+			limitMultiFileUploads : 10,
+			//limitConcurrentUploads : 1,
+			singleFileUploads : false,
+			formData : function(form) {
+				console.log(form);
+				return form.serializeArray();
+			},
+			add : function(e, data) {
+				id=$(this).attr("id");
+				var fileNames = '';
+				var validFiles = true;
+				$.each(data.files, function(index, file) {
+					fileNames += file.name + ', ';
+					if (!file.name.substring(file.name.lastIndexOf(".") + 1).match(/(jpg|jpeg)/ig)) {
+						validFiles = false;
+					}
+				});
+				//alert("validFiles"+validFiles);
+				if (validFiles) {
+					//alert("v"+id);
+					if(fileNames.length > 0){
+						fileNames = fileNames.substring(0, fileNames.length-2);
+					}
+					$("#upload-filename").removeClass("invalid-filetype").val(fileNames);
+					$("#upload-btn"+id).show();
+					$("#upload-btn"+id).unbind('click').bind('click', function() {
+						data.submit();
+					});
+				} else {
+					alert("Please add jpg/jpeg format images only");
+					$("#upload-filename").addClass("invalid-filetype").html("Please select Image files only.jpeg/jpg");
+					$("#upload-btn").hide();
+				}
+			},
+			done : function(e, data) {
+				$("#successMessage"+id).show();
+				$("#fileUploadDiv #"+(id)).attr("disabled","disabled");
+				$("#fileUploadDiv #"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				$("#fileUploadDiv #upload-btn"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				if(id==3){
+					window.location.reload();
+				}
+			},
+			fail : function(e, data) {
+				if($.browser.msie){
+					//window.clearInterval(intvlId);
+				}
+				setTimeout(function() {
+					$("#cabinet").addClass('cabinet');
+					$("#cabinet").removeClass('newCabinet');
+					$("#fileupload").removeAttr('disabled');
+					showHide();}, 3000); 
+			},
+			progressall : function(e, data) {
+			},
+			start : function(e) {
+				$("#upload-btn"+id).unbind('click').hide();
+				$("#txnuploadStart").show();
+			},submit:function(){
+				$("#txnuploadsuccess").hide();
+				$("#fileupload").attr('disabled','disabled');
+				$("#cabinet").removeClass('cabinet');
+				$("#cabinet").addClass('newCabinet');
+			}
+		});
+	}
+
+
 $(document).ready(function(){
 	/*carouser*/
 					
