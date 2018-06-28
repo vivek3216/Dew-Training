@@ -3,24 +3,18 @@ package com.dew.training.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.dew.training.auth.CustomAuthenticationProvider;
-import com.dew.training.dto.LoginStatus;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
+import com.dew.training.enums.FileType;
 import com.dew.training.service.UserService;
-import com.google.api.client.util.Value;
 
 @RestController
 public class RestAPIController {
@@ -61,6 +55,22 @@ public class RestAPIController {
 				
 			}
 			
+			return status;
+		}
+		
+		
+		@ResponseBody
+		@RequestMapping(value = "/user/upload/",method = RequestMethod.POST,produces="application/json")
+		public String uploadImage(@RequestParam MultipartFile file,@RequestParam Long titleId,@RequestParam FileType fileType){
+			String status=null;
+			try {
+				status="success";
+				int userId=0;
+				userService.uploadFile(file,fileType,userId);
+			} catch (Exception e) {
+				e.printStackTrace();
+				status="failure";
+			}
 			return status;
 		}
 

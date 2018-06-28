@@ -24,3 +24,10 @@
 	<script src="${pageContext.request.contextPath}/static/js/jquery.sameheight.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/common.js"></script>
 	<script src="${ pageContext.request.contextPath }/static/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="${ pageContext.request.contextPath }/static/js/common.js" type="text/javascript"></script>
+	
+	<script type="text/javascript" src="${ pageContext.request.contextPath }/static/js/si.files.js"></script>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/static/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="${ pageContext.request.contextPath }/static/js/jquery.iframe-transport.js"></script>
+<script src="${ pageContext.request.contextPath }/static/js/jquery.fileupload.js" type="text/javascript"></script>
+<script src="${ pageContext.request.contextPath }/static/js/jquery.fileupload-ui.js" type="text/javascript"></script>

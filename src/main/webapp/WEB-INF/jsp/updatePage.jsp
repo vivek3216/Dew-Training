@@ -37,10 +37,9 @@
 	
 	<div class="container"  style="padding-top: 150px;">
 		<div class="row">
-			<div class=" col-md-9 mx-auto">
+			<div class=" col-md-12 mx-auto">
 			<h2>Update your Profile</h2><br>
 			<div class="myform form">
-			<form id="updateForm">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="text-center">Education Details</h3>
@@ -49,7 +48,8 @@
 						<div class="panel-body" id="UG-education">
 							<h4>Under-Graduate Education Details</h4>
 						</div>
-					<div class="panel-body">
+					<form id="ugFrm">
+						<div class="panel-body">
 						<div class="form-group">
 							<label for="course_select">UG Course</label>
 							<select  name="course" id="course_ug" class="form-control" aria-describedby="emailHelp" placeholder="Select Course">
@@ -100,12 +100,14 @@
 							<input type="text" class="form-control" id="college" placeholder="Enter college/institute" >
 						</div>
 					</div>
+					</form>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-body" id="UG-education">
 							<h4>Senior Secondary and Higher Secondary Education Details</h4>
 						</div>
 					<div class="panel-body">
+						<form id="twelfthFrm">
 						<div class="form-group">
 							<label for="class12">Class 12</label>
 							<select  name="board" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
@@ -137,6 +139,8 @@
 							  <option value="Urdu">Urdu</option> 
 							</select><br>
 						</div>
+						</form>
+						<form id="tenthFrm">
 						<div class="form-group">
 							<label for="class10">Class 10</label>
 							<select  name="board" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board">
@@ -168,6 +172,7 @@
 							  <option value="Urdu">Urdu</option> 
 							</select><br>
 						</div>
+					</form>
 					</div>
 					</div>
 				</div>
@@ -176,6 +181,7 @@
 					<div class="panel-heading">
 						<h3 class="text-center"> Work Preference </h3>
 					</div>
+					<form id="workFrm">
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="work_pre">Specify your preference: </label>
@@ -213,12 +219,14 @@
 							</select>
  						</div>
 					</div>
+					</form>
 				</div>
 				
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="text-center"> Internship Details</h3>
 					</div>
+					<form id="internFrm">
 					<div class="panel-body">
 						<div class="form-group">
 							<label for="company-name"> Company </label>
@@ -235,17 +243,17 @@
 							<textarea rows="5" cols="10" class="form-control" name="details" id="details"></textarea>
 						</div>
 					</div>
+					</form>
 				</div>
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="form-group">
 							<input type="checkbox" name="agree"> I have read and I agree to the terms and conditions.
 							<br><br>
-							<b><input class="form-control" type="submit" id="agreed" value="Submit and continue with registration"></b> 
+							<b><input class="form-control" type="button" onclick="submitUserInfo()" id="agreed" value="Submit and continue with registration"></b> 
 						</div>
 					</div>
 				</div>
-				</form>
 				</div>
 			</div>
 		</div>
