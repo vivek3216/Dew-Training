@@ -49,7 +49,7 @@
 	<%@ include file ="includes/header.jsp" %>
 	<div class="container">
 		<center>
-                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3Rsdsdsd" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3Rsdsdsd" name="aboutme" width="140" height="140" border="0" class="img-circle"></a></a>
                     <h3 class="media-heading">Joe Sixpack <small>USA</small></h3>
                     <span><strong>Skills: </strong></span>
                         <span class="label label-warning">HTML5/CSS</span>
@@ -58,22 +58,22 @@
                         <span class="label label-success">Windows XP, Vista, 7</span>
                         
                         
-                        <form class="marginBottom20" style="left:100px;position: relative;">
+                        <form class="marginBottom20">
 				      <input type="hidden" value="IMAGE" name="fileType">
-				      <input type="hidden" value="${user.userId}" name="userId">
+				      <input type="hidden" value="${userObj.userId}" name="userId">
 		                     <div class="input-group">
 			                <span class="input-group-btn">
 			                    <span class="btn btn-primary btn-file">
 			                        Browse… <input type="file" id="fileupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
 			                    </span>
 			                </span>
-			                <input type="text" class="form-control hidden" readonly="readonly" id="finame">
+			                <input type="text" class="form-control" readonly="readonly" id="finame">
 			            </div>
 				     	 
 				      </form>
 				      <div class="row">
 				<div class="pull-right">
-			        <button type="button" class="btn btn-primary" id="upload-btn" style="display: none;margin-top: -20px;">Upload</button>
+			        <button type="button" class="btn btn-primary" id="upload-btn" style="display: none;">Upload</button>
 			      </div>
 			</div>
          </center>
@@ -177,32 +177,72 @@
                        <p class="text-left"><strong>Marital Status</strong><br>
                        ${jobInfo.maritalStatus }</p>
                        
-                       <p class="text-left"><strong>Aadhar Card</strong><br>
-                      <!--   <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div> -->
+                       <p class="text-left"><strong>Resume</strong><br>
+                      
+                      <form class="marginBottom20" style="left:100px;position: relative;">
+				      <input type="hidden" value="RESUME" name="fileType">
+				      <input type="hidden" value="${userObj.userId}" name="userId">
+		                     <div class="input-group">
+			                <span class="input-group-btn">
+			                    <span class="btn btn-primary btn-file">
+			                        Browse… <input type="file" id="resumeupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
+			                    </span>
+			                </span>
+			                <input type="text" class="form-control hidden" readonly="readonly" id="resname">
+			            	</div>
+				     	 
+				      </form>
+				      <div class="row">
+						<div class="pull-right">
+			        <button type="button" class="btn btn-primary" id="upload-res-btn" style="display: none;margin-top: -20px;">Upload</button>
+			      		</div>
+					  </div>
+			
                        <br>
                        <p class="text-left"><strong>Passport</strong><br>
-                  <!--      <div class="fileinput fileinput-new" data-provides="fileinput"> <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 50px; height: 25px;"></div> <div> <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div> </div> -->
+                 
+                 		<form class="marginBottom20" style="left:100px;position: relative;">
+				      <input type="hidden" value="PASSPORT" name="fileType">
+				      <input type="hidden" value="${userObj.userId}" name="userId">
+		                     <div class="input-group">
+			                <span class="input-group-btn">
+			                    <span class="btn btn-primary btn-file">
+			                        Browse… <input type="file" id="passportupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
+			                    </span>
+			                </span>
+			                <input type="text" class="form-control hidden" readonly="readonly" id="passname">
+			            	</div>
+				     	 
+				      </form>
+				      <div class="row">
+						<div class="pull-right">
+			        <button type="button" class="btn btn-primary" id="upload-pass-btn" style="display: none;margin-top: -20px;">Upload</button>
+			      		</div>
+					  </div>
+					  
                         <br>
-                       <p class="text-left"><strong>Resume</strong><br>
-                <!--         <link rel="stylesheet" type="text/css" href="css/file-upload.css" />
-                       <script src="js/file-upload.js"></script>
-                                  <script type="text/javascript">
-                                  $(document).ready(function() {
-                                       $('.file-upload').file_upload();
-                                                     });
-                                        </script>
-                       <form class="form-horizontal">
-                            <div class="form-group">
-                              <div class="col-sm-offset-0 col-sm-10">
-                              <label class="file-upload btn btn-primary">
-                                    Browse for file ... <input type="file" />
-                              </label>
-                              </div>
-                            </div>
-                       </form> -->
-        
+                       <p class="text-left"><strong>Aadhar Card</strong><br>
+                
+                <form class="marginBottom20" style="left:100px;position: relative;">
+				      <input type="hidden" value="AADHAR" name="fileType">
+				      <input type="hidden" value="${userObj.userId}" name="userId">
+		                     <div class="input-group">
+			                <span class="input-group-btn">
+			                    <span class="btn btn-primary btn-file">
+			                        Browse… <input type="file" id="aadharupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
+			                    </span>
+			                </span>
+			                <input type="text" class="form-control hidden" readonly="readonly" id="aadharname">
+			            	</div>
+				     	 
+				      </form>
+				      <div class="row">
+						<div class="pull-right">
+			        <button type="button" class="btn btn-primary" id="upload-aad-btn" style="display: none;margin-top: -20px;">Upload</button>
+			      		</div>
+					  </div>
+					  
+        				<br>
                        </div>
                        
                     	</div>
@@ -226,6 +266,10 @@ function updateJob(){
 	
 	location.href="http://localhost:8080/Dew-Training/user/addjobProfile";
 }
+initFileUpload();
+initFileUploadResume();
+initFileUploadPassport();
+initFileUploadAadhar();
 
 </script>
 </html>

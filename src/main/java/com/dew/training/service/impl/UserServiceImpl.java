@@ -32,6 +32,8 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private EmailService emailService;
 	
+
+	@Transactional(rollbackFor = Throwable.class)  //don't sign up if mail not sent
 	@Override
 	public User addUser(User user) throws Exception {
 		// TODO Auto-generated method stub

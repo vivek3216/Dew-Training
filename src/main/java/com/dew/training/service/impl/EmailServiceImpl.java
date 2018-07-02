@@ -56,7 +56,7 @@ public class EmailServiceImpl implements EmailService{
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 		helper.setFrom(ApplicationProperties.getProperty("fromEmailAddress"));
 		helper.setTo(params.get("email").toString());
-		helper.setSubject(messageType.equals(MailMessageType.FORGOT_PASSWORD) ? ApplicationProperties.getProperty("forgotPasswordEmailSubject") : ApplicationProperties.getProperty("changePasswordEmailSubject"));
+		helper.setSubject(messageType.equals(MailMessageType.FORGOT_PASSWORD) ? ApplicationProperties.getProperty("forgotPasswordEmailSubject") : ApplicationProperties.getProperty("subject"));
 		helper.setText(content, true);
 	}
 

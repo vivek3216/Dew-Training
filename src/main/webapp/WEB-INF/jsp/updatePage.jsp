@@ -323,7 +323,7 @@ function updateUserInfo(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-			window.location="/user/myProfile"
+			location.href=$("#baseUrl").val()+"/user/addjobProfile"
         }
       });
 }

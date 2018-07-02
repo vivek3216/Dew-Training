@@ -35,7 +35,7 @@ $.fn.serializeObject = function()
 function submitForm(){
 	var formData=$("#registerForm").serializeObject();
 	console.log(formData);
-	var url="http://localhost:8090/Training/register/";
+	var url=$("#baseUrl").val()+"/register/";
 	$.ajax({
         url : url,
         type : 'POST',
@@ -43,7 +43,12 @@ function submitForm(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-			console.log(data);
+        	if(data==null){
+        		alert("Error occured, Please try again")
+        	}else{
+        		
+        		location.href=$("#baseUrl").val()+"/user/myProfile"
+        	}
         }
       });
 }
@@ -178,6 +183,240 @@ function initFileUpload(){
 			},submit:function(){
 				$("#txnuploadsuccess").hide();
 				$("#fileupload").attr('disabled','disabled');
+				$("#cabinet").removeClass('cabinet');
+				$("#cabinet").addClass('newCabinet');
+			}
+		});
+	}
+
+function initFileUploadResume(){
+	/*data-url="../../api/uploadImages/"*/
+	console.log("called")
+		$('#resumeupload').css("visibility", "visible");
+		var intvlId;
+		var id;
+		$('#resumeupload').fileupload({
+			acceptFileTypes : /(\.|\/)(doc|pdf)$/i,
+			dataType : 'json',
+			progressInterval: 1000,
+			replaceFileInput : false,
+			limitMultiFileUploads : 10,
+			//limitConcurrentUploads : 1,
+			singleFileUploads : false,
+			formData : function(form) {
+				console.log(form);
+				return form.serializeArray();
+			},
+			add : function(e, data) {
+				id=$(this).attr("id");
+				var fileNames = '';
+				var validFiles = true;
+				$.each(data.files, function(index, file) {
+					fileNames += file.name + ', ';
+					if (!file.name.substring(file.name.lastIndexOf(".") + 1).match(/(doc|pdf)/ig)) {
+						validFiles = false;
+					}
+				});
+				//alert("validFiles"+validFiles);
+				if (validFiles) {
+					//alert("v"+id);
+					if(fileNames.length > 0){
+						fileNames = fileNames.substring(0, fileNames.length-2);
+					}
+					$("#upload-filename").removeClass("invalid-filetype").val(fileNames);
+					$("#upload-res-btn").show();
+					$("#upload-res-btn").unbind('click').bind('click', function() {
+						data.submit();
+					});
+				} else {
+					alert("Please add doc/pdf format files only");
+					$("#upload-filename").addClass("invalid-filetype").html("Please select Text files only.doc/pdf");
+					$("#upload-res-btn").hide();
+				}
+			},
+			done : function(e, data) {
+				$("#successMessage"+id).show();
+				$("#fileUploadDiv #"+(id)).attr("disabled","disabled");
+				$("#fileUploadDiv #"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				$("#fileUploadDiv #upload-res-btn"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				if(id==3){
+					window.location.reload();
+				}
+			},
+			fail : function(e, data) {
+				if($.browser.msie){
+					//window.clearInterval(intvlId);
+				}
+				setTimeout(function() {
+					$("#cabinet").addClass('cabinet');
+					$("#cabinet").removeClass('newCabinet');
+					$("#resumeupload").removeAttr('disabled');
+					showHide();}, 3000); 
+			},
+			progressall : function(e, data) {
+			},
+			start : function(e) {
+				$("#upload-res-btn"+id).unbind('click').hide();
+				$("#txnuploadStart").show();
+			},submit:function(){
+				$("#txnuploadsuccess").hide();
+				$("#resumeupload").attr('disabled','disabled');
+				$("#cabinet").removeClass('cabinet');
+				$("#cabinet").addClass('newCabinet');
+			}
+		});
+	}
+
+function initFileUploadPassport(){
+	/*data-url="../../api/uploadImages/"*/
+	console.log("called")
+		$('#passportupload').css("visibility", "visible");
+		var intvlId;
+		var id;
+		$('#passportupload').fileupload({
+			acceptFileTypes : /(\.|\/)(jpg|jpeg)$/i,
+			dataType : 'json',
+			progressInterval: 1000,
+			replaceFileInput : false,
+			limitMultiFileUploads : 10,
+			//limitConcurrentUploads : 1,
+			singleFileUploads : false,
+			formData : function(form) {
+				console.log(form);
+				return form.serializeArray();
+			},
+			add : function(e, data) {
+				id=$(this).attr("id");
+				var fileNames = '';
+				var validFiles = true;
+				$.each(data.files, function(index, file) {
+					fileNames += file.name + ', ';
+					if (!file.name.substring(file.name.lastIndexOf(".") + 1).match(/(jpg|jpeg)/ig)) {
+						validFiles = false;
+					}
+				});
+				//alert("validFiles"+validFiles);
+				if (validFiles) {
+					//alert("v"+id);
+					if(fileNames.length > 0){
+						fileNames = fileNames.substring(0, fileNames.length-2);
+					}
+					$("#upload-filename").removeClass("invalid-filetype").val(fileNames);
+					$("#upload-pass-btn").show();
+					$("#upload-pass-btn").unbind('click').bind('click', function() {
+						data.submit();
+					});
+				} else {
+					alert("Please add jpg/jpeg format files only");
+					$("#upload-filename").addClass("invalid-filetype").html("Please select Image files only.jpg/jpeg");
+					$("#upload-pass-btn").hide();
+				}
+			},
+			done : function(e, data) {
+				$("#successMessage"+id).show();
+				$("#fileUploadDiv #"+(id)).attr("disabled","disabled");
+				$("#fileUploadDiv #"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				$("#fileUploadDiv #upload-pass-btn"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				if(id==3){
+					window.location.reload();
+				}
+			},
+			fail : function(e, data) {
+				if($.browser.msie){
+					//window.clearInterval(intvlId);
+				}
+				setTimeout(function() {
+					$("#cabinet").addClass('cabinet');
+					$("#cabinet").removeClass('newCabinet');
+					$("#passportupload").removeAttr('disabled');
+					showHide();}, 3000); 
+			},
+			progressall : function(e, data) {
+			},
+			start : function(e) {
+				$("#upload-pass-btn"+id).unbind('click').hide();
+				$("#txnuploadStart").show();
+			},submit:function(){
+				$("#txnuploadsuccess").hide();
+				$("#passportupload").attr('disabled','disabled');
+				$("#cabinet").removeClass('cabinet');
+				$("#cabinet").addClass('newCabinet');
+			}
+		});
+	}
+
+function initFileUploadAadhar(){
+	/*data-url="../../api/uploadImages/"*/
+	console.log("called")
+		$('#aadharupload').css("visibility", "visible");
+		var intvlId;
+		var id;
+		$('#aadharupload').fileupload({
+			acceptFileTypes : /(\.|\/)(jpg|jpeg)$/i,
+			dataType : 'json',
+			progressInterval: 1000,
+			replaceFileInput : false,
+			limitMultiFileUploads : 10,
+			//limitConcurrentUploads : 1,
+			singleFileUploads : false,
+			formData : function(form) {
+				console.log(form);
+				return form.serializeArray();
+			},
+			add : function(e, data) {
+				id=$(this).attr("id");
+				var fileNames = '';
+				var validFiles = true;
+				$.each(data.files, function(index, file) {
+					fileNames += file.name + ', ';
+					if (!file.name.substring(file.name.lastIndexOf(".") + 1).match(/(jpg|jpeg)/ig)) {
+						validFiles = false;
+					}
+				});
+				//alert("validFiles"+validFiles);
+				if (validFiles) {
+					//alert("v"+id);
+					if(fileNames.length > 0){
+						fileNames = fileNames.substring(0, fileNames.length-2);
+					}
+					$("#upload-filename").removeClass("invalid-filetype").val(fileNames);
+					$("#upload-aad-btn").show();
+					$("#upload-aad-btn").unbind('click').bind('click', function() {
+						data.submit();
+					});
+				} else {
+					alert("Please add jpg/jpeg format files only");
+					$("#upload-filename").addClass("invalid-filetype").html("Please select Image files only.jpg/jpeg");
+					$("#upload-aad-btn").hide();
+				}
+			},
+			done : function(e, data) {
+				$("#successMessage"+id).show();
+				$("#fileUploadDiv #"+(id)).attr("disabled","disabled");
+				$("#fileUploadDiv #"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				$("#fileUploadDiv #upload-aad-btn"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
+				if(id==3){
+					window.location.reload();
+				}
+			},
+			fail : function(e, data) {
+				if($.browser.msie){
+					//window.clearInterval(intvlId);
+				}
+				setTimeout(function() {
+					$("#cabinet").addClass('cabinet');
+					$("#cabinet").removeClass('newCabinet');
+					$("#aadharupload").removeAttr('disabled');
+					showHide();}, 3000); 
+			},
+			progressall : function(e, data) {
+			},
+			start : function(e) {
+				$("#upload-aad-btn"+id).unbind('click').hide();
+				$("#txnuploadStart").show();
+			},submit:function(){
+				$("#txnuploadsuccess").hide();
+				$("#aadharupload").attr('disabled','disabled');
 				$("#cabinet").removeClass('cabinet');
 				$("#cabinet").addClass('newCabinet');
 			}

@@ -208,7 +208,7 @@ $.fn.serializeObject = function()
 function updateJobInfo(){
 	var formData=$("#updateJob").serializeObject();
 	console.log(formData);
-	var url="http://localhost:8080/Dew-Training/updateJobInfo";
+	var url=$("#baseUrl").val()+"/updateJobInfo";
 	$.ajax({
         url : url,
         type : 'POST',
@@ -216,7 +216,7 @@ function updateJobInfo(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-			console.log(data);
+        	location.href=$("#baseUrl").val()+"/user/myProfile"
         }
       });
 }

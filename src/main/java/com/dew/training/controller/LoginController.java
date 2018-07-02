@@ -35,7 +35,13 @@ public class LoginController {
 	@RequestMapping(value = "/register",method=RequestMethod.POST,produces = "application/json")
 	public User registeruser(@RequestBody User user) throws Exception {
 		logger.println(IMessage.DEBUG,"Register User : "+user.getEmail());
-		User userDB=userService.addUser(user);
+		User userDB = null;
+		try {
+			userDB = userService.addUser(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return userDB;
 		
 	}
