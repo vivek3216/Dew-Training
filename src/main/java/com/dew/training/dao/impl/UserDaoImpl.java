@@ -201,7 +201,7 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 							statement.setString(19, userInfo.getInternship().getDuration_start());
 							statement.setString(20, userInfo.getInternship().getDuration_end());
 							statement.setString(21, userInfo.getInternship().getDetails());
-							statement.setInt(22, 1);
+							statement.setInt(22, userInfo.getUser_id());
 							return statement;
 						}
 					},keyHolder);
@@ -269,7 +269,7 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 	@Override
 	public UserInfo getUserInfo(int userId) {
 		// TODO Auto-generated method stub
-		UserInfo dBUser=null;
+		UserInfo dBUser=new UserInfo();
 		final String sql = "SELECT * FROM  user_profile WHERE user_id= ? ";
 		try {
 			dBUser = getJdbcTemplate().queryForObject(sql, new UserInfoRowMapper(),userId);
@@ -282,9 +282,13 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 	@Override
 	public JobInfo getJobInfo(int userId) {
 		// TODO Auto-generated method stub
-		JobInfo dBUser=null;
+		JobInfo dBUser=new JobInfo();
 		final String sql = "SELECT * FROM  job_profile WHERE user_id= ? ";
-		dBUser = getJdbcTemplate().queryForObject(sql, new JobInfoRowMapper(),userId);
+		try {
+			dBUser = getJdbcTemplate().queryForObject(sql, new JobInfoRowMapper(),userId);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return dBUser;
 	}
 

@@ -58,7 +58,7 @@
                         <span class="label label-success">Windows XP, Vista, 7</span>
                         
                         
-                        <form class="marginBottom20">
+                        <form class="marginBottom20" style="left:100px;position: relative;">
 				      <input type="hidden" value="IMAGE" name="fileType">
 				      <input type="hidden" value="${user.userId}" name="userId">
 		                     <div class="input-group">
@@ -67,13 +67,13 @@
 			                        Browse… <input type="file" id="fileupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
 			                    </span>
 			                </span>
-			                <input type="text" class="form-control" readonly="readonly" id="finame">
+			                <input type="text" class="form-control hidden" readonly="readonly" id="finame">
 			            </div>
 				     	 
 				      </form>
 				      <div class="row">
 				<div class="pull-right">
-			        <button type="button" class="btn btn-primary" id="upload-btn" style="display: none;">Upload</button>
+			        <button type="button" class="btn btn-primary" id="upload-btn" style="display: none;margin-top: -20px;">Upload</button>
 			      </div>
 			</div>
          </center>

@@ -315,7 +315,7 @@ function updateUserInfo(){
 	userInfo.internship=internData;
 	console.log(JSON.stringify(userInfo));
 	
-	var url="http://localhost:8080/Dew-Training/updateUserInfo";
+	var url=$("#baseUrl").val()+"/updateUserInfo";
 	$.ajax({
         url : url,
         type : 'POST',
@@ -323,7 +323,7 @@ function updateUserInfo(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-			console.log(data);
+			window.location="/user/myProfile"
         }
       });
 }

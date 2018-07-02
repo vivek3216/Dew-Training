@@ -69,10 +69,12 @@ public class FrontController extends BaseController{
 			if(userInfo==null){
 				modelAndView.setView(new RedirectView("/user/addupdateProfile", true));	
 				return modelAndView;
+				
 			}
 			JobInfo jobInfo=userService.getJobInfo(userId);
 			modelAndView.addObject("userInfo", userInfo);
 			modelAndView.addObject("jobInfo", jobInfo);
+			
 		}
 		return modelAndView;
 	}
