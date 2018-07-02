@@ -3,6 +3,7 @@ package com.dew.training.dao;
 import com.dew.training.dto.JobInfo;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
+import com.dew.training.enums.FileType;
 
 public interface UserDao {
 
@@ -27,4 +28,6 @@ public interface UserDao {
 	public void getPassword(String Password);
 
 	public User getUserByUserId(int userId);
+
+	public void updateFileExtension(String extension, FileType fileType, int userId);
 }

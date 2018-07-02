@@ -25,6 +25,34 @@ public class User {
 	private String createdBy;
 	private Date modifiedOn;
 	private String modifiedBy;
+	private String imageExtention;
+	private String passportExtention;
+	private String aadharExtention;
+	private String resumeExtention;
+	public String getImageExtention() {
+		return imageExtention;
+	}
+	public void setImageExtention(String imageExtention) {
+		this.imageExtention = imageExtention;
+	}
+	public String getPassportExtention() {
+		return passportExtention;
+	}
+	public void setPassportExtention(String passportExtention) {
+		this.passportExtention = passportExtention;
+	}
+	public String getAadharExtention() {
+		return aadharExtention;
+	}
+	public void setAadharExtention(String aadharExtention) {
+		this.aadharExtention = aadharExtention;
+	}
+	public String getResumeExtention() {
+		return resumeExtention;
+	}
+	public void setResumeExtention(String resumeExtention) {
+		this.resumeExtention = resumeExtention;
+	}
 	public int getUserId() {
 		return userId;
 	}

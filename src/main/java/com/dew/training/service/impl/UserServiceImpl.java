@@ -102,6 +102,7 @@ public class UserServiceImpl implements UserService{
 				if(existingFile.exists())
 					existingFile.delete();
 				file.transferTo(new File(path));
+				userDAO.updateFileExtension(FilenameUtils.getExtension(file.getOriginalFilename()), fileType, userId);
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			}catch(IOException ex){

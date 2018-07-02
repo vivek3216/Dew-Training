@@ -40,25 +40,25 @@
 				<div class="container">
 					<div class="main_menu_inner">
 						<a href="index.html" class="logo_left"><img
-							src="http://d2yeadnxz9xlcr.cloudfront.net/images/logo.png" alt="Dew Solutions" title="Dew Solutions"></a>
+							src="${pageContext.request.contextPath}/static/images/logo.png" alt="Dew Solutions" title="Dew Solutions"></a>
 							<button class="mobMenu_toggle">
 				               <span></span>
 				             </button>
 						<nav class="mainMenu menu_mob">
 							<ul class="main_navList">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="about-us.html">About Us</a></li>
+								<li><a href="${pageContext.request.contextPath}">Home</a></li>
+								<li><a href="http://www.dewsolutions.in/about-us.html" target="_blank">About Us</a></li>
 								<li><a href="javascript:void(0)" class="">Services</a>
 									<ul class="submenu">
 										<li>
 											<ul class="subMenuListing">
-												<li><a href="web-development.html"
-													title="Web Development">Web Development</a></li>
+												<li><a href="http://www.dewsolutions.in/web-development.html"
+													title="Web Development" target="_blank">Web Development</a></li>
 												<li><a href="infra.html"
 													title="Cloud
 														Infra Support"> Cloud Infra
 														Support</a></li>
-												<li><a href="quality.html" title="Quality Assurance">Quality
+												<li><a href="http://www.dewsolutions.in/quality.html" target="_blank" title="Quality Assurance">Quality
 														Assurance</a></li>
 											</ul>
 										</li>
@@ -68,8 +68,8 @@
 													title="Mobile Development">Mobile Development</a></li>
 												<li><a href="design.html" title="Design Consultancy">Design
 														Consultancy</a></li>
-												<li><a href="product-consultancy.html"
-													title="Product Consultancy">Product Consultancy</a></li>
+												<li><a href="http://www.dewsolutions.in/product-consultancy.html"
+													title="Product Consultancy" target="_blank">Product Consultancy</a></li>
 											</ul>
 										</li>
 									</ul></li>

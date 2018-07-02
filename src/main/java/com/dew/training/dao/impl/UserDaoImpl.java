@@ -20,6 +20,7 @@ import com.dew.training.dto.Schooling;
 import com.dew.training.dto.User;
 import com.dew.training.dto.UserInfo;
 import com.dew.training.dto.Work;
+import com.dew.training.enums.FileType;
 import com.dew.training.enums.Gender;
 import com.dew.training.enums.JobType;
 import com.dew.training.enums.Preference;
@@ -39,6 +40,10 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 			user.setFirstName(rs.getString("first_name"));
 			user.setLastName(rs.getString("last_name"));
 			user.setPassword(rs.getString("Password"));
+			user.setImageExtention(rs.getString("image_ext"));
+			user.setAadharExtention(rs.getString("aadhar_ext"));
+			user.setResumeExtention(rs.getString("resume_ext"));
+			user.setPassportExtention(rs.getString("passport_ext"));
 			return user;
 			
 		}
@@ -297,6 +302,12 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 		String sql= "SELECT * FROM users WHERE user_id  =?";
 		
 		return getJdbcTemplate().queryForObject(sql, new UserRowMapper(),userId);
+	}
+
+	@Override
+	public void updateFileExtension(String extension, FileType fileType, int userId) {
+		String sql="UPDATE users SET "+fileType.toString().toLowerCase()+"_ext = ? WHERE user_id = ?";
+		getJdbcTemplate().update(sql,extension,userId);
 	}
 
 }
