@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void uploadFile(MultipartFile file, FileType fileType,int userId) {
-		String path=ApplicationProperties.getProperty("fileLocation")+ "/"+userId + "_" +fileType+"_"+FilenameUtils.getExtension(file.getOriginalFilename());
+		String path=ApplicationProperties.getProperty("fileLocation")+File.separator +userId + "_" +fileType+"."+FilenameUtils.getExtension(file.getOriginalFilename());
 		if(!StringUtils.isEmpty(file.getOriginalFilename())){
 			try {
 				File existingFile = new File(path);
