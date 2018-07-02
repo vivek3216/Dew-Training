@@ -14,6 +14,73 @@ $.fn.serializeObject = function()
    });
    return o;
 };
+
+$("#header").addClass('header-scrolled')
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+function submitForm(){
+	var formData=$("#registerForm").serializeObject();
+	console.log(formData);
+	var url="http://localhost:8090/Training/register/";
+	$.ajax({
+        url : url,
+        type : 'POST',
+        data:JSON.stringify(formData),
+        dataType : "json",
+        contentType : "application/json",
+        success : function(data) {
+			console.log(data);
+        }
+      });
+}
+
+
+function doLogin(){
+	var formData=$("#loginform").serializeObject();
+	console.log(formData);
+	var url=$("#baseUrl").val()+"/user/login/";
+	$.ajax({
+        url : url,
+        type : 'POST',
+        data:JSON.stringify(formData),
+        dataType : "json",
+        contentType : "application/json",
+        success : function(data) {
+			console.log(data);
+			if(data.loggedIn){
+				window.location.reload();
+			}
+        }
+      });
+}
+		function openSignUp(){
+		$("#first").addClass('hidden');
+		$("#second").removeClass('hidden');
+	}
+	
+	function openSignIn(){
+		$("#first").removeClass('hidden');
+		$("#second").addClass('hidden');
+	}
+	
+	function openPage() {
+		$("#first").addClass('hidden');
+		$("#third").removeClass('hidden');
+	}
 function submitUserInfo(){
 	var userInfo={};
 	var ugData=JSON.stringify($("#ugFrm").serializeObject());
@@ -41,10 +108,11 @@ function submitUserInfo(){
 
 function initFileUpload(){
 	/*data-url="../../api/uploadImages/"*/
+	console.log("called")
 		$('#fileupload').css("visibility", "visible");
 		var intvlId;
 		var id;
-		$('.fileupload1').fileupload({
+		$('#fileupload').fileupload({
 			acceptFileTypes : /(\.|\/)(jpg|jpeg)$/i,
 			dataType : 'json',
 			progressInterval: 1000,
@@ -73,8 +141,8 @@ function initFileUpload(){
 						fileNames = fileNames.substring(0, fileNames.length-2);
 					}
 					$("#upload-filename").removeClass("invalid-filetype").val(fileNames);
-					$("#upload-btn"+id).show();
-					$("#upload-btn"+id).unbind('click').bind('click', function() {
+					$("#upload-btn").show();
+					$("#upload-btn").unbind('click').bind('click', function() {
 						data.submit();
 					});
 				} else {
@@ -118,6 +186,19 @@ function initFileUpload(){
 
 
 $(document).ready(function(){
+	
+	$("#btn-password-request").click(function(){
+		var url=$("#baseUrl").val()+"/forgotPassword?email="+$("#forgot-password-email").val();
+		$.ajax({
+	        url : url,
+	        type : 'POST',
+	        dataType : "json",
+	        contentType : "application/json",
+	        success : function(data) {
+				console.log(data);
+	        }
+	      });
+	});
 	/*carouser*/
 					
 					

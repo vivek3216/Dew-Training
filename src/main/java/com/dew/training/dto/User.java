@@ -19,7 +19,7 @@ public class User {
 	private String country;
 	private Integer pincode;
 	private String email;
-	private static String password;
+	private String password;
 	private Integer typeOfUser;
 	private Date createdOn;
 	private String createdBy;
@@ -103,11 +103,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public static String getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public static void setPassword(String password) {
-		User.password = password;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public Integer getTypeOfUser() {
 		return typeOfUser;

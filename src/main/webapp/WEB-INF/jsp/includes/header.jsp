@@ -120,7 +120,18 @@
 									</ul></li>
 								<!-- <li><a href="javascript:void(0)">Team</a></li> -->
 								<li><a href="contact-us.html">Contact Us</a></li>
+								<c:if test="${empty userObj}">
 								<li><a href="javascript:;" data-target="#modelForUserRegister" data-toggle="modal" id="loginMe">Login</a></li>
+								</c:if>
+								<c:if test="${not empty userObj and userObj.userId gt 0 }">
+								<li>
+								<li><a href="${pageContext.request.contextPath}/user/myProfile">My Profile</a>
+									<ul  class="submenu">
+										
+										<li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+									</ul>
+									</li>
+								</c:if>
 								
 							</ul>
 						</nav>
@@ -156,7 +167,7 @@
 							</div>
 							<div style="margin-top: 10px" class="form-group">
 								<div class="col-sm-12 controls">
-								<input type="submit" value="Login" class="btn btn-success" id="btn-login">
+								<input type="button" onclick="doLogin()" value="Login" class="btn btn-success" id="btn-login">
 									<!-- <a id="btn-login" href="#" class="btn btn-success">Login </a>  -->
 									<!-- <a id="btn-fblogin" href="#" class="btn btn-primary" onclick="fbLogin();">Login with Facebook</a> -->
 								</div>

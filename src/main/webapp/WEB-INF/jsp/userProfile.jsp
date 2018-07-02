@@ -56,6 +56,26 @@
                         <span class="label label-info">Adobe CS 5.5</span>
                         <span class="label label-info">Microsoft Office</span>
                         <span class="label label-success">Windows XP, Vista, 7</span>
+                        
+                        
+                        <form class="marginBottom20">
+				      <input type="hidden" value="IMAGE" name="fileType">
+				      <input type="hidden" value="${user.userId}" name="userId">
+		                     <div class="input-group">
+			                <span class="input-group-btn">
+			                    <span class="btn btn-primary btn-file">
+			                        Browse… <input type="file" id="fileupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
+			                    </span>
+			                </span>
+			                <input type="text" class="form-control" readonly="readonly" id="finame">
+			            </div>
+				     	 
+				      </form>
+				      <div class="row">
+				<div class="pull-right">
+			        <button type="button" class="btn btn-primary" id="upload-btn" style="display: none;">Upload</button>
+			      </div>
+			</div>
          </center>
                     <hr>
                     <center style="padding-top: 0;">

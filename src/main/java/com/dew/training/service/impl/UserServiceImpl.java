@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -83,8 +84,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User getUserByUserId(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDAO.getUserByUserId(userId);
 	}
 
 	@Override
@@ -95,16 +95,17 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void uploadFile(MultipartFile file, FileType fileType,int userId) {
-		String ext=fileType.toString().equals(FileType.RESUME) ? FilenameUtils.getExtension(file.getOriginalFilename()):".jpg";
-		String path=ApplicationProperties.getProperty("fileLocation")+ userId + "_" +fileType+"."+ext+"";
+		String path=ApplicationProperties.getProperty("fileLocation")+ "/"+userId + "_" +fileType+"_"+FilenameUtils.getExtension(file.getOriginalFilename());
 		if(!StringUtils.isEmpty(file.getOriginalFilename())){
 			try {
 				File existingFile = new File(path);
 				if(existingFile.exists())
 					existingFile.delete();
 				file.transferTo(new File(path));
-			} catch (IllegalStateException | IOException e) {
+			} catch (IllegalStateException e) {
 				e.printStackTrace();
+			}catch(IOException ex){
+				ex.printStackTrace();
 			}
 		}
 	}

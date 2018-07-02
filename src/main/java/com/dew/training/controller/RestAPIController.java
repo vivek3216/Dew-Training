@@ -39,7 +39,7 @@ public class RestAPIController {
 		@ResponseBody
 		@RequestMapping(value = "/forgotPassword",produces="application/json")
 		public void forgotPassword(@RequestParam String email) throws Exception {
-			System.out.println("Your Password :" +User.getPassword());
+			System.out.println("Your Password :");
 			userService.sendForgotPassword(email);
 		}
 		
@@ -47,6 +47,11 @@ public class RestAPIController {
 		@RequestMapping(value = "/updateUserInfo",method=RequestMethod.POST,produces="application/json")
 		public String updateUserInformation(@RequestBody UserInfo userInfo,HttpServletRequest httpServletRequest) {
 			//update call
+			int userId=0;
+			if(httpServletRequest.getSession().getAttribute("DewUser")!=null){
+				userId= (Integer) httpServletRequest.getSession().getAttribute("DewUser");
+			}
+			userInfo.setUser_id(userId);
 			String status="success";
 			try {
 				userService.updateuserProfile(userInfo);
@@ -63,8 +68,13 @@ public class RestAPIController {
 		@ResponseBody
 		@RequestMapping(value = "/updateJobInfo",method=RequestMethod.POST,produces="application/json")
 		public String updateJobInformation(@RequestBody JobInfo jobInfo,HttpServletRequest httpServletRequest) {
-			//update call
+			int userId=0;
+			if(httpServletRequest.getSession().getAttribute("DewUser")!=null){
+				userId= (Integer) httpServletRequest.getSession().getAttribute("DewUser");
+			}
+			jobInfo.setUser_id(userId);
 			String status="success";
+			
 			try {
 				userService.updatejobProfile(jobInfo);
 			} catch (Exception e) {
@@ -80,11 +90,10 @@ public class RestAPIController {
 		
 		@ResponseBody
 		@RequestMapping(value = "/user/upload/",method = RequestMethod.POST,produces="application/json")
-		public String uploadImage(@RequestParam MultipartFile file,@RequestParam Long titleId,@RequestParam FileType fileType){
+		public String uploadImage(@RequestParam MultipartFile file,@RequestParam FileType fileType,@RequestParam int userId){
 			String status=null;
 			try {
 				status="success";
-				int userId=0;
 				userService.uploadFile(file,fileType,userId);
 			} catch (Exception e) {
 				e.printStackTrace();

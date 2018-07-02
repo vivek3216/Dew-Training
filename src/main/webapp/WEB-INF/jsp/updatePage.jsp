@@ -45,7 +45,7 @@ form {
 	
 	<div class="container"  style="padding-top: 150px;">
 		<div class="row">
-			<div class=" col-md-9 mx-auto">
+			<div class=" col-md-12 mx-auto">
 			<h2>Update your Profile</h2><br>
 			<div class="myform form">
 				<form id="updateGraduation">
@@ -276,10 +276,10 @@ form {
 		</div>
 	</div>
 			
-	  <%@ include file ="includes/footer.jsp" %>
 	<%@include file="includes/include-js.jsp"%> 
 	
 	</div>
+	  <%@ include file ="includes/footer.jsp" %>
 </body>
 
 <script type="text/javascript">

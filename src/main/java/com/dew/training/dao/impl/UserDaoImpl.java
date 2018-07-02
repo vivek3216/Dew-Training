@@ -271,7 +271,11 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 		// TODO Auto-generated method stub
 		UserInfo dBUser=null;
 		final String sql = "SELECT * FROM  user_profile WHERE user_id= ? ";
-		dBUser = getJdbcTemplate().queryForObject(sql, new UserInfoRowMapper(),userId);
+		try {
+			dBUser = getJdbcTemplate().queryForObject(sql, new UserInfoRowMapper(),userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return dBUser;
 	}
 
@@ -282,6 +286,13 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 		final String sql = "SELECT * FROM  job_profile WHERE user_id= ? ";
 		dBUser = getJdbcTemplate().queryForObject(sql, new JobInfoRowMapper(),userId);
 		return dBUser;
+	}
+
+	@Override
+	public User getUserByUserId(int userId) {
+		String sql= "SELECT * FROM users WHERE user_id  =?";
+		
+		return getJdbcTemplate().queryForObject(sql, new UserRowMapper(),userId);
 	}
 
 }

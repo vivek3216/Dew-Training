@@ -31,3 +31,5 @@
 <script type="text/javascript" src="${ pageContext.request.contextPath }/static/js/jquery.iframe-transport.js"></script>
 <script src="${ pageContext.request.contextPath }/static/js/jquery.fileupload.js" type="text/javascript"></script>
 <script src="${ pageContext.request.contextPath }/static/js/jquery.fileupload-ui.js" type="text/javascript"></script>
+
+<input type="hidden" id="baseUrl" value="${ pageContext.request.contextPath }">
