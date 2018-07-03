@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public JobInfo updatejobProfile(JobInfo jobInfo) throws Exception {
 		// TODO Auto-generated method stub
-		JobInfo info=userDAO.getJobInfo(1);
+		JobInfo info=userDAO.getJobInfo(jobInfo.getUser_id());
 		if(info.getJob_profile_id()>0) {
 			jobInfo.setJob_profile_id(info.getJob_profile_id());
 			userDAO.updatejob(jobInfo);

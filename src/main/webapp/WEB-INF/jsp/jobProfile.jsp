@@ -36,15 +36,15 @@
 	
 	<div class="container"  style="padding-top: 150px;">
 		<div class="row">
-			<div class=" col-md-9 mx-auto">
+			<div class=" col-md-12 mx-auto">
 				<h2>Update your  Job Profile</h2><br>
 					<div class="myform form">
 						<form id="updateJob">
 							
-							  <div class="form-group">
+							 <!--   <div class="form-group">
 								<label for="image">Upload Picture</label>
 								<input type="text" id="image" class="form-control">
-							  </div> 
+							  </div> -->
 							  <div class="form-group">
 							  	<label for="bio"> Describe your professional background </label>
 							  	<textarea name="bio" rows="5" cols="5" class="form-control" id="bio" placeholder="${jobInfo.bio }"></textarea>
@@ -155,7 +155,7 @@
 							  		<option value="Divorced" selected="${jobInfo.maritalStatus eq 'Divorced'}">Divorced</option>
 							  	</select>
 							  </div>
-							  <div class="form-group">
+							  <!--  <div class="form-group">
 							  	<label for="aadhar">Upload Aadhar Card</label>
 							  	<input type="text" id="aadhar" class="form-control">
 							  </div>
@@ -166,12 +166,12 @@
 							  <div class="form-group">
 							  	<label for="resume">Upload Resume</label>
 							  	<input type="text" id="resume" class="form-control">
-							  </div>
+							  </div> -->
 							  <hr>
 							  <div class="form-group">
 							  	<b><input type="button" class="form-control btn btn-default"  onclick="updateJobInfo()" value="Submit and view Profile"></b>
 							  </div>
-							  <br>
+							  <br> 
 						</form>
 						<br>
 					</div>
@@ -216,7 +216,11 @@ function updateJobInfo(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-        	location.href=$("#baseUrl").val()+"/user/myProfile"
+        	console.log(data)
+        	if(data.status==='success')
+			window.location.href=$("#baseUrl").val()+"/user/myProfile"
+			else
+				alert("Error while adding/updating details")
         }
       });
 }

@@ -37,13 +37,6 @@ public class RestAPIController {
 		}
 		
 		@ResponseBody
-		@RequestMapping(value = "/forgotPassword",produces="application/json")
-		public void forgotPassword(@RequestParam String email) throws Exception {
-			System.out.println("Your Password :");
-			userService.sendForgotPassword(email);
-		}
-		
-		@ResponseBody
 		@RequestMapping(value = "/updateUserInfo",method=RequestMethod.POST,produces="application/json")
 		public String updateUserInformation(@RequestBody UserInfo userInfo,HttpServletRequest httpServletRequest) {
 			//update call
@@ -61,8 +54,7 @@ public class RestAPIController {
 				// TODO: handle exception
 				
 			}
-			
-			return status;
+			 return "{\"status\" : \""+status+"\"}";
 		}
 		
 		@ResponseBody
@@ -84,7 +76,7 @@ public class RestAPIController {
 				
 			}
 			
-			return status;
+			return "{\"status\" : \""+status+"\"}";
 		}
 		
 		
@@ -99,7 +91,7 @@ public class RestAPIController {
 				e.printStackTrace();
 				status="failure";
 			}
-			return status;
+			return "{\"status\" : \""+status+"\"}";
 		}
 
 }

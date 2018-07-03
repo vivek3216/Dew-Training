@@ -56,8 +56,10 @@ form {
 					<h4>Under-Graduate Education Details</h4>
 				 	<div class="panel-body">
 						<div class="form-group">
+						<input type="hidden" id="ugcourseid" value="${userInfo.graduation.name }">
 					 		<label for="course_select">UG Course</label> 
 							<select  name="name" id="courseug" class="form-control" > 
+							<option  value="-1" selected="${empty userInfo.graduation.name }"> Select </option>
 							  <option value="B.Com" selected="${userInfo.graduation.name eq 'B.Com'}">B.Com</option>
 							  <option value="B.A." selected="${userInfo.graduation.name eq 'B.A.'}">B.A.</option>
 							  <option value="B.Arch" selected="${userInfo.graduation.name eq 'B.Arch'}">B.Arch</option>
@@ -81,7 +83,7 @@ form {
 						</div>
 						<div class="form-group">
 							<label for="specialization">Specialization</label>
-							<input type="text" name="specialization" class="form-control" id="specialization" placeholder="Enter your specialization" value="${userInfo.graduation.specialization }">
+							<input type="text" name="specialization" autocomplete="false" class="form-control" id="specialization" placeholder="Enter your specialization" value="${userInfo.graduation.specialization }">
 						</div>
 						<div class="form-group">
 							<label for="yearOfPassing">Year of Passing</label>
@@ -92,8 +94,10 @@ form {
 							</select>
 						</div>
 						<div class="form-group">
+						<input type="hidden" id="educationTypeid" value="${userInfo.graduation.educationType }">
 							<label for="grading">Grading System</label>
 							<select  name="educationType" id="grade_sys" class="form-control" aria-describedby="emailHelp" >
+							<option value="-1" selected="${empty userInfo.graduation.educationType }"> Select </option>
 							  <option value="Scale 10 Grading System" selected="${userInfo.graduation.educationType eq 'Scale 10 Grading System' }">Scale 10 Grading System</option>
 							  <option value="Scale 4 Grading System" selected="${userInfo.graduation.educationType eq 'Scale 4 Grading System' }">Scale 4 Grading System</option>
 							  <option value="% Marks out of 100 Max" selected="${userInfo.graduation.educationType eq '% Marks out of 100 Max' }">% Marks out of 100 Max</option>
@@ -117,6 +121,7 @@ form {
 						<div class="form-group">
 							<label for="class12">Class 12</label>
 							<select  name="name" id="board_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Board" >
+							<option> Select </option>
 							  <option value="CBSE" selected="${userInfo.twelfthStandard.name eq 'CBSE' }">CBSE</option>
 							  <option value="CISCE(ICSE/ISC)" selected="${userInfo.twelfthStandard.name eq 'CISCE(ICSE/ISC)' }">CISCE(ICSE/ISC)</option>
 							  <option value="Diploma" selected="${userInfo.twelfthStandard.name eq 'Diploma' }">Diploma</option>
@@ -130,6 +135,7 @@ form {
 								</c:forEach>
 							</select><br>
 							<select  name="board" id="medium_tw" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium" >
+							<option> Select </option>
 							  <option value="Assamese/Asomiya" selected="${userInfo.twelfthStandard.board eq 'Assamese/Asomiya' }">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla" selected="${userInfo.twelfthStandard.board eq 'Bengali/Bangla' }">Bengali/Bangla</option>
 							  <option value="English" selected="${userInfo.twelfthStandard.board eq 'English' }">English</option>
@@ -167,6 +173,7 @@ form {
 								</c:forEach>
 							</select><br>
 							<select  name="board" id="medium_te" class="form-control" aria-describedby="emailHelp" placeholder="Select Medium" >
+							<option> Select </option>
 							  <option value="Assamese/Asomiya" selected="${userInfo.tenthStandard.board eq 'Assamese/Asomiya' }">Assamese/Asomiya</option>
 							  <option value="Bengali/Bangla" selected="${userInfo.tenthStandard.board eq 'Bengali/Bangla' }">Bengali/Bangla</option>
 							  <option value="English" selected="${userInfo.tenthStandard.board eq 'English' }">English</option>
@@ -210,6 +217,7 @@ form {
  						<div class="form-group">
  							<label for="location"> Preferred location: </label>
  							<select  name="location" id="location" class="form-control" aria-describedby="emailHelp" >
+ 							<option> Select</option>
 							  <option value="Ahmedabad" selected="${userInfo.workExperience.location eq 'Ahmedabad' }">Ahemdabad</option>
 								  <option value="Bangalore" selected="${userInfo.workExperience.location eq 'Bangalore' }">Bangalore</option>
 								  <option value="Bhopal" selected="${userInfo.workExperience.location eq 'Bhopal' }">Bhopal</option>
@@ -323,10 +331,15 @@ function updateUserInfo(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-			location.href=$("#baseUrl").val()+"/user/addjobProfile"
+        	console.log(data)
+        	if(data.status==='success')
+			window.location.href=$("#baseUrl").val()+"/user/addjobProfile"
+			else
+				alert("Error while adding/updating details")
         }
       });
 }
+
 
 </script>
 </html>

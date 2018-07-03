@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class LoginController {
 	@RequestMapping(value = "/register",method=RequestMethod.POST,produces = "application/json")
 	public User registeruser(@RequestBody User user) throws Exception {
 		logger.println(IMessage.DEBUG,"Register User : "+user.getEmail());
-		User userDB = null;
+		User userDB = new User();
 		try {
 			userDB = userService.addUser(user);
 		} catch (Exception e) {
@@ -67,6 +68,22 @@ public class LoginController {
 			return new LoginStatus(false, "","","",0);
 		}
 		return status;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/forgotPassword",produces="application/json")
+	public String forgotPassword(@RequestParam String email) throws Exception {
+		System.out.println("Your Password :");
+		String status ="success";
+		try {
+			userService.sendForgotPassword(email);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			status="failure";
+			e.printStackTrace();
+		}
+		return "{\"status\" : \""+status+"\"}";
+		
 	}
 	
 	@RequestMapping(value= "/logout")

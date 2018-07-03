@@ -6,8 +6,8 @@
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="465" />
 		<property name="protocol" value="smtp" />
-		<property name="username" value="" />
-		<property name="password" value="" />
+		<property name="username" value="sanyataneja32@gmail.com" />
+		<property name="password" value="Inseblue98" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.starttls.enable">true</prop>

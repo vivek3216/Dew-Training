@@ -252,7 +252,7 @@ public class UserDaoImpl extends JDBCDaoSupport implements UserDao {
 							statement.setInt(7, jobInfo.getEmploymentType().getValue());
 							statement.setString(8, jobInfo.getSkills());
 							statement.setString(9, jobInfo.getMaritalStatus());
-							statement.setInt(10,1);
+							statement.setInt(10,jobInfo.getUser_id());
 							return statement;
 						}
 					},keyHolder);

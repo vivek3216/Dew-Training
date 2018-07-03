@@ -90,7 +90,7 @@ public class FrontController extends BaseController{
 			User user = userService.getUserByUserId(userId);
 			modelAndView.addObject("userObj", user);
 		}
-		UserInfo userInfo= userService.getUserInfo(1);
+		UserInfo userInfo= userService.getUserInfo(userId);
 		
 		modelAndView.addObject("userInfo", userInfo);
 		

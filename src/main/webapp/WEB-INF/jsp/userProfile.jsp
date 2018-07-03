@@ -49,8 +49,8 @@
 	<%@ include file ="includes/header.jsp" %>
 	<div class="container">
 		<center>
-                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3Rsdsdsd" name="aboutme" width="140" height="140" border="0" class="img-circle"></a></a>
-                    <h3 class="media-heading">Joe Sixpack <small>USA</small></h3>
+                    <img src="${pageContext.request.contextPath }/static/UserFiles/${userObj.userId}_IMAGE.${userObj.imageExtention}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a></a>
+                    <h3 class="media-heading"> Joe Sixpack <small>USA</small></h3>
                     <span><strong>Skills: </strong></span>
                         <span class="label label-warning">HTML5/CSS</span>
                         <span class="label label-info">Adobe CS 5.5</span>
@@ -67,7 +67,7 @@
 			                        Browse… <input type="file" id="fileupload" name="file"  data-url="${ pageContext.request.contextPath }/user/upload/">
 			                    </span>
 			                </span>
-			                <input type="text" class="form-control" readonly="readonly" id="finame">
+			                <input type="text" class="form-control hidden" readonly="readonly" id="finame">
 			            </div>
 				     	 
 				      </form>
@@ -198,6 +198,8 @@
 			      		</div>
 					  </div>
 			
+				<embed width="500" height="500" name="plugin" src="${pageContext.request.contextPath }/static/UserFiles/${userObj.userId}_RESUME.pdf" type="application/pdf">
+				<a href="${pageContext.request.contextPath }/static/UserFiles/${userObj.userId}_RESUME.pdf" target="_blank">Click to download</a>
                        <br>
                        <p class="text-left"><strong>Passport</strong><br>
                  
@@ -219,6 +221,7 @@
 			        <button type="button" class="btn btn-primary" id="upload-pass-btn" style="display: none;margin-top: -20px;">Upload</button>
 			      		</div>
 					  </div>
+					  <img src="${pageContext.request.contextPath }/static/UserFiles/${userObj.userId}_PASSPORT.${userObj.passportExtention}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a></a>
 					  
                         <br>
                        <p class="text-left"><strong>Aadhar Card</strong><br>
@@ -242,6 +245,7 @@
 			      		</div>
 					  </div>
 					  
+					  <img src="${pageContext.request.contextPath }/static/UserFiles/${userObj.userId}_AADHAR.${userObj.aadharExtention}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a></a>
         				<br>
                        </div>
                        

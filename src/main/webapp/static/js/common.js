@@ -43,15 +43,16 @@ function submitForm(){
         dataType : "json",
         contentType : "application/json",
         success : function(data) {
-        	if(data==null){
+        	console.log(data)
+        	if(data.userId==0){
         		alert("Error occured, Please try again")
         	}else{
-        		
-        		location.href=$("#baseUrl").val()+"/user/myProfile"
+        		window.location.href=$("#baseUrl").val();
         	}
         }
       });
 }
+
 
 
 function doLogin(){
@@ -67,7 +68,7 @@ function doLogin(){
         success : function(data) {
 			console.log(data);
 			if(data.loggedIn){
-				window.location.reload();
+				window.location.href=$("#baseUrl").val();
 			}
         }
       });
@@ -157,13 +158,7 @@ function initFileUpload(){
 				}
 			},
 			done : function(e, data) {
-				$("#successMessage"+id).show();
-				$("#fileUploadDiv #"+(id)).attr("disabled","disabled");
-				$("#fileUploadDiv #"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
-				$("#fileUploadDiv #upload-btn"+(parseInt(id)+parseInt(1))).removeAttr("disabled");
-				if(id==3){
-					window.location.reload();
-				}
+				window.location.reload();
 			},
 			fail : function(e, data) {
 				if($.browser.msie){
@@ -426,6 +421,12 @@ function initFileUploadAadhar(){
 
 $(document).ready(function(){
 	
+	if($("#ugcourseid").val()==''){
+		$("#courseug").val(-1);
+	}
+	if($("#educationTypeid").val()==''){
+		$("#educationType").val(-1);
+	}
 	$("#btn-password-request").click(function(){
 		var url=$("#baseUrl").val()+"/forgotPassword?email="+$("#forgot-password-email").val();
 		$.ajax({
@@ -434,7 +435,13 @@ $(document).ready(function(){
 	        dataType : "json",
 	        contentType : "application/json",
 	        success : function(data) {
-				console.log(data);
+				if(data.status==='success'){
+					$("#requestPasswordSuccess").removeClass("hidden");	
+					$("#requestPasswordFailed").addClass("hidden");
+				}else{
+					$("#requestPasswordFailed").removeClass("hidden");
+					$("#requestPasswordSuccess").addClass("hidden");
+				}
 	        }
 	      });
 	});

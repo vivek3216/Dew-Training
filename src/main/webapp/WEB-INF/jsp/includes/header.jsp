@@ -202,7 +202,7 @@
 						<div style="display: none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 						<form id="forgotPassword" class="form-horizontal" role="form">
 							<div style="margin-bottom: 25px" class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
+								<span class="input-group-addon"><i class="fa fa-user"></i></span> 
 								<input id="forgot-password-email" type="text" class="form-control" name="email" value="" placeholder="Email" required>
 							</div>
 							<div style="margin-bottom: 25px" class="input-group hidden" id="requestPasswordSuccess">
